@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Permitir sólo scripts y ficheros de la máquina local -->
+    <!-- Con esto se elimina el aviso de seguridad: Insecure Content-Security-Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';" />
+
+    <!-- Hoja de estilo de la interfaz -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Añadimos el icono-->
+    <link rel="icon" href="English.ico">
+
+    <!-- Cargar el proceso asociado a esta página -->
+    <script src="index.js" defer></script>
+
+    <title>Questionnaire App</title>
+</head>
+<body>
+    <h1>Questionnaires:</h1>
+    <hr>
+    <h2>Types of Questionnaires:</h2>
+    <ul>
+        <li>English Questionnaire:  <span id="info1" class="blue">   <input type="button" value="Enter Test" id="btn_test"></span> </li>
+    </ul>
+    <hr>
+</body>
+</html>

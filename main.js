@@ -17,7 +17,7 @@ electron.app.on('ready', () => {
     win = new electron.BrowserWindow({
         width: 600,   //-- Anchura 
         height: 600,  //-- Altura
-        icon:  'English.ico',
+        icon:  'f1-management.ico',
         //-- Permitir que la ventana tenga ACCESO AL SISTEMA
         webPreferences: {
           nodeIntegration: true,
@@ -47,7 +47,7 @@ electron.app.on('ready', () => {
 //-- renderizado. Al recibirlos se escribe una cadena en la consola
 electron.ipcMain.handle('test', (event, msg) => {
     console.log("-> Mensaje: " + msg);
-    win.loadFile("English_Test.html"); 
+    win.loadFile("F1_Test.html"); 
   });
 electron.ipcMain.handle('back',(event, msg)=>{
   console.log("-> Mensaje: " + msg);
