@@ -25,7 +25,7 @@
             "category": "Utility"
         }
     },
-    "win":{
+    "win": {
         "icon": "f1manangement.ico"
     },
     "devDependencies": {
