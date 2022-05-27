@@ -17,7 +17,7 @@ electron.app.on('ready', () => {
     win = new electron.BrowserWindow({
         width: 600,   //-- Anchura 
         height: 600,  //-- Altura
-        icon:  'f1-management.ico',
+        icon:  '/css/images/logo/f1-management.ico',
         //-- Permitir que la ventana tenga ACCESO AL SISTEMA
         webPreferences: {
           nodeIntegration: true,
