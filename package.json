@@ -1,0 +1,35 @@
+{
+    "name": "f1-management",
+    "description": "App to manage tires in F12021",
+    "version": "0.0.1",
+    "main": "main.js",
+    "author": {
+        "name": "Manuel"
+    },
+    "homepage": "",
+    "license": "LGPL",
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "build": {
+        "appId": "f1management-1-id",
+        "productName": "F1Management",
+        "copyright": "Copyright © 2022 ${author}",
+        "linux": {
+            "target": [
+                "AppImage"
+            ],
+            "category": "Utility"
+        }
+    },
+    "win":{
+        "icon": "f1manangement.ico"
+    },
+    "devDependencies": {
+        "electron": "^12.2.3",
+        "electron-builder": "^22.14.13"
+    }
+}
