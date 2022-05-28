@@ -4,13 +4,14 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 300px){
     #title{
         height: auto;
     }
     #wrapper{
         width: auto;
     }
+
 }
 button {
     font-size: 2em;
@@ -45,113 +46,113 @@ button[class^="slide"]::after {
 }
 button[class^="slide_from_bahrein"]::after{
     background-blend-mode: darken,luminosity;
-    background:url(images/flags/bahrein.png), linear-gradient(to bottom, transparent, black 90%);
+    background:url(images/flags/bahrein.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
     background-repeat: no-repeat;
 }
 button[class^="slide_from_arabia"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/arabia.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/arabia.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_australia"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/australia.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/australia.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_italy"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/italia.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/italia.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_usa"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/usa.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/usa.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_spain"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/spain.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/spain.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_monaco"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/monaco.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/monaco.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_azerbaiyan"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/azerbaiyan.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/azerbaiyan.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_canada"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/canada.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/canada.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_austria"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/austria.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/austria.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_france"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/francia.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/francia.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_hungary"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/hungria.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/hungria.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_belgium"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/belgica.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/belgica.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_holanda"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/PaisesBajos.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/PaisesBajos.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_russia"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/rusia.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/rusia.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_singapur"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/singapur.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/singapur.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_japon"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/japon.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/japon.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_mexico"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/mexico.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/mexico.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_brasil"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/brasil.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/brasil.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_eau"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/EAU.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/EAU.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_china"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/china.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/china.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_portugal"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/portugal.png), linear-gradient(to bottom, transparent, black 90%);
+    background: url(images/flags/portugal.png), linear-gradient(to bottom, transparent, black 75%);
     background-size: 100%;
 }
 
