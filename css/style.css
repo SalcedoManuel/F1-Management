@@ -52,7 +52,7 @@ button[class^="slide_from_bahrein"]::after{
 }
 button[class^="slide_from_arabia"]::after{
     background-blend-mode: darken;
-    background: url(images/flags/arabia.png), linear-gradient(to bottom, transparent, black 75%);
+    background: url(images/flags/arabia.png), linear-gradient(to bottom, transparent, gray, black 75%);
     background-size: 100%;
 }
 button[class^="slide_from_australia"]::after{
