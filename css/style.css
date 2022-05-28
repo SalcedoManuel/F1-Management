@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(202, 255, 248);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.fila{
+    text-align: center;
+    background-color: red;
+}
+
+#Botones{
+    text-align: center;
+    width: 18%;
+    height: 15%;
+    font-family: "FormulaUno";
+}
+@font-face {
+    font-family: 'FormulaUno';
+    src: url(fonts/FormulaUno.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}

@@ -1,0 +1,47 @@
+
+  button {
+    font-size: 2em;
+    background: #000000;
+    color: #fff;
+    border: 0.25rem solid #000000;
+    padding: 0.85em 0.75em;
+    margin: 1rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  button:hover {
+    color: white;
+  }
+  button::after {
+    content: "";
+    background-image: url(css/images/flags/usa.png);
+    background-repeat: no-repeat;
+    background-attachment:local;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    padding: 0.85em 0.75em;
+    display: block;
+  }
+  button[class^="slide"]::after {
+    transition: all 1.35s;
+  }
+  button[class^="slide"]:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+  }
+  
+  button.slide_from_top::after {
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+  }
+  .tracks{
+    background-color: rgba(0, 0, 0, 0.5);
+  }
