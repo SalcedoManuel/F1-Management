@@ -4,7 +4,14 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
-
+@media screen and (max-width: 480px){
+    #title{
+        height: auto;
+    }
+    #wrapper{
+        width: auto;
+    }
+}
 button {
     font-size: 2em;
     background: #000000;
