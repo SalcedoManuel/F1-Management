@@ -12,12 +12,11 @@ let win = null;
 //-- ejecuta esta función
 electron.app.on('ready', () => {
     console.log("Evento Ready!");
-
     //-- Crear la ventana principal de nuestra aplicación
     win = new electron.BrowserWindow({
-        width: 600,   //-- Anchura 
-        height: 600,  //-- Altura
-        icon:  '/css/images/logo/f1-management.ico',
+        width: 1200,   //-- Anchura 
+        height: 800,  //-- Altura
+        icon:  'logo.ico',
         //-- Permitir que la ventana tenga ACCESO AL SISTEMA
         webPreferences: {
           nodeIntegration: true,

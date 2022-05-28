@@ -26,10 +26,11 @@
         }
     },
     "win": {
-        "icon": "f1manangement.ico"
+        "icon": "logo.ico"
     },
     "devDependencies": {
         "electron": "^12.2.3",
         "electron-builder": "^22.14.13"
-    }
+    },
+    "dependencies": {}
 }
