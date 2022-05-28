@@ -6,4 +6,4 @@
 
 * Escribir en el terminal: npm run dist
 
-* Enlace a la página: [https://salcedomanuel.github.io/F1-Tire-Management](https://salcedomanuel.github.io/F1-Tire-Management.github.io/)
+* Enlace a la página: [https://salcedomanuel.github.io/F1-Tire-Management](https://salcedomanuel.github.io/F1-Tire-Management.github.io/) [Actualmente caído]
