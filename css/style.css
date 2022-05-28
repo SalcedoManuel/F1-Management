@@ -46,7 +46,7 @@ button[class^="slide"]::after {
 }
 button[class^="slide_from_bahrein"]::after{
     background-blend-mode: darken,luminosity;
-    background:url(images/flags/bahrein.png), linear-gradient(to bottom, transparent, black 75%);
+    background:url(images/flags/bahrein.png), linear-gradient(to bottom, transparent,gray, black 75%);
     background-size: 100%;
     background-repeat: no-repeat;
 }
