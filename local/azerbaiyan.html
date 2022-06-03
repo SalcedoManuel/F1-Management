@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Permitir sólo scripts y ficheros de la máquina local -->
+    <!-- Con esto se elimina el aviso de seguridad: Insecure Content-Security-Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';" />
+
+    <!-- Hoja de estilo de la interfaz -->
+    <link rel="stylesheet" href="css/style-tracks.css">
+
+    <!-- Añadimos el icono-->
+    <link rel="icon" href="css/images/logo/logo.ico">
+
+    <!-- Cargar el proceso asociado a esta página -->
+    <script src="index.js" defer></script>
+
+    <title>F1 Management</title>
+</head>
+<body>
+    <h1 class="title">Azerbaiyan</h2>
+    <hr>
+    <h3 class="options">Race Length</h3>
+    <div class="wrapper">
+        <button class="Laps" value="5">5 Laps</button>
+        <button class="Laps" value="13">13 Laps</button>
+        <button class="Laps" value="26">26 Laps</button>
+        <button class="Laps" value="51">51 Laps</button>
+    </div>
+    
+    <!--<div class="wrapper">
+        <button id="FiveLaps"><p class="buttons_options" value = "5">5 Laps</p></button>
+        <button id="Quarter"><p class="buttons_options" value = "13">13 Laps</p></button>
+        <button id="Half"><p class="buttons_options" value="26">26 Laps</p></button>
+        <button id="Full"><p class="buttons_options" value="51">51 Laps</p></button>
+    </div>-->
+    <hr>
+    <h3 class="options">Weather</h3>
+    <div class="wrapper">
+        <button class="Weather" value="Dry-Dry">Dry-Dry</button>
+        <button class="Weather" value="Wet-Dry">Wet-Wet</button>
+        <button class="Weather" value="Dry-Wet">Dry-Wet</button>
+        <button class="Weather" value="Wet-Wet">Wet-Dry</button>
+    </div>
+    <!--<div class="wrapper">
+        <button><p class="buttons_options">Dry-Dry</p></button>
+        <button><p class="buttons_options">Wet-Wet</p></button>
+        <button><p class="buttons_options">Dry-Wet</p></button>
+        <button><p class="buttons_options">Wet-Dry</p></button>
+    </div>-->
+    <hr>
+    <div class="wrapper">
+        <button class="calculo">Calculate Strategy</button>
+    </div>
+    <hr>
+    <div>
+        <p id="display" class="wrapper"></p>
+    </div>
+    <hr>
+</body>
+</html>

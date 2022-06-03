@@ -1,0 +1,64 @@
+body{
+    background-color: rgb(0, 0, 0);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-width: 600px;
+}
+
+button {
+    background: #000000;
+    color: #fff;
+    border: 0.25rem solid #ffffff;
+    margin: 1rem;
+    border-radius: 20px;
+    width: 250px;
+    height: 100px;
+    text-align: center;
+    padding: auto;
+}
+
+@font-face {
+    font-family: 'FormulaUno';
+    src: url(fonts/FormulaUno.ttf) format('truetype');
+    font-style:normal;
+    font-weight:300;
+    text-align: center;
+}
+
+.title{
+    font-family: "FormulaUno";
+    padding: auto;
+    background-color: antiquewhite;
+    text-align: center;
+    border-radius: 20px;
+    height: 50px;
+    padding-top: 10px;
+}
+.options{
+    font-family: "FormulaUno";
+    padding: auto;
+    background-color: antiquewhite;
+    text-align: center;
+    border-radius: 20px;
+}
+.wrapper{
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    grid-template-columns: minmax(200px,300px)1fr;
+}
+
+.buttons_options,.Laps,.Weather,.calculo{
+    text-align: center;
+    font-variant-position: normal;
+    font-family: 'FormulaUno';
+    font-size: 200%;
+}
+
+/* Styles of Simulation Option */
+#display{
+    background-color: #ffffff;
+    font-family: 'FormulaUno';
+
+}
