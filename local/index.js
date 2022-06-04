@@ -1,8 +1,20 @@
+const fs = require('fs');
+const http = require('http');
+
 console.log("Ejecutando Javascript...");
 
 const auxiliar = document.getElementsByClassName("title");
 const race_name = auxiliar[0].innerHTML;
 console.log(race_name);
+
+const JSON_File_Name= "race_info.json";
+
+//-- Leer el fichero JSON.
+const JSON_File = fs.readFileSync(JSON_File_Name);
+
+//-- Creamos la estructura a partir del fichero.
+const f1info = JSON.parse(JSON_File);
+
 
 let race = document.getElementsByClassName("Laps");
 for(var i = 0; i < race.length; i++){
