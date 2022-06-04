@@ -1,5 +1,9 @@
 console.log("Ejecutando Javascript...");
 
+const auxiliar = document.getElementsByClassName("title");
+const race_name = auxiliar[0].innerHTML;
+console.log(race_name);
+
 let race = document.getElementsByClassName("Laps");
 for(var i = 0; i < race.length; i++){
     race[i].onclick = (ev)=>{
