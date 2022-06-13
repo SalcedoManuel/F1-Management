@@ -237,7 +237,7 @@
                         "time":0.000,
                         "lifespan":10,
                         "time_lost_lap":0.100,
-                        "degadation":5
+                        "degradation":5
                     }
                 ],
                 "medium":[
@@ -245,7 +245,7 @@
                         "time":0.600,
                         "lifespan":20,
                         "time_lost_lap":0.100,
-                        "degadation":3
+                        "degradation":3
                     }
                 ],
                 "hard":[
@@ -253,7 +253,7 @@
                         "time":1.800,
                         "lifespan":35,
                         "time_lost_lap":0.040,
-                        "degadation":2
+                        "degradation":2
                     }
                 ],
                 "inter":[
@@ -261,7 +261,7 @@
                         "time":10.827,
                         "lifespan":20,
                         "time_lost_lap":0.100,
-                        "degadation":2
+                        "degradation":2
                     }
                 ],
                 "wet":[
