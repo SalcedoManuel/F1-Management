@@ -113,8 +113,7 @@ function two_compounds(compound1,compound2,option) {
         let max_laps = compound1["lifespan"]+compound2["lifespan"];
         let loops_laps = max_laps - race_length;
         let first_lap_loop = compound1["lifespan"]-loops_laps;
-
-        for (let index = first_lap_loop; index < compound2["lifespan"]; index++) {
+        for (let index = first_lap_loop; index < compound1["lifespan"]; index++) {
             // lap_stop marca la vuelta de la que sería la parada.
             let lap_stop = index;
             // Variable usada para decirnos que se ha llegado a la vuelta de la parada.
