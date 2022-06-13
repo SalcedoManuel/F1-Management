@@ -34,8 +34,8 @@
         ],
         "SaudiArabia":[
             {
-                "track":"Bahrein",
-                "laps":51,
+                "track":"Saudi Arabia",
+                "laps":50,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
                 "soft":[
@@ -66,8 +66,8 @@
         ],
         "Australia":[
             {
-                "track":"Bahrein",
-                "laps":51,
+                "track":"Australia",
+                "laps":58,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
                 "soft":[
@@ -98,8 +98,8 @@
         ],
         "Imola":[
             {
-                "track":"Bahrein",
-                "laps":51,
+                "track":"Imola",
+                "laps":58,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
                 "soft":[
@@ -130,8 +130,8 @@
         ],
         "Miami":[
             {
-                "track":"Bahrein",
-                "laps":51,
+                "track":"Miami",
+                "laps":57,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
                 "soft":[
@@ -162,8 +162,8 @@
         ],
         "España":[
             {
-                "track":"Bahrein",
-                "laps":51,
+                "track":"Spain",
+                "laps":66,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
                 "soft":[
@@ -226,7 +226,7 @@
         ],
         "Azerbaiyan":[
             {
-                "track":"Bahrein",
+                "track":"Azerbaiyan",
                 "laps":51,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
@@ -258,7 +258,7 @@
         ],
         "Canada":[
             {
-                "track":"Bahrein",
+                "track":"Canada",
                 "laps":51,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
