@@ -1,4 +1,4 @@
-[
+[    
     {
         "Bahrein":[
             {
@@ -160,7 +160,7 @@
                 ]
             }
         ],
-        "España":[
+        "Spain":[
             {
                 "track":"Spain",
                 "laps":66,
@@ -229,6 +229,56 @@
                 "track":"Azerbaiyan",
                 "laps":51,
                 "time_lost_pit":16.4,
+                "time_lost_pit_sc":9,
+                "time_earn_fuel":0.090,
+                "max_degradation":60,
+                "soft":[
+                    {
+                        "time":0.000,
+                        "degadation":5,
+                        "time_lost_lap":0.100,
+                        "lifespan":10
+                    }
+                ],
+                "medium":[
+                    {
+                        "time":0.600,
+                        "degadation":3,
+                        "time_lost_lap":0.100,
+                        "lifespan":20
+                    }
+                ],
+                "hard":[
+                    {
+                        "time":1.800,
+                        "degadation":2,
+                        "time_lost_lap":0.040,
+                        "lifespan":35
+                    }
+                ],
+                "inter":[
+                    {
+                        "time":10.827,
+                        "degadation":2,
+                        "time_lost_lap":0.100,
+                        "lifespan":20
+                    }
+                ],
+                "wet":[
+                    {
+                        "time":13.824,
+                        "degadation":3.5,
+                        "time_lost_lap":0.100,
+                        "lifespan":25
+                    }
+                ]
+            }
+        ],
+        "Canada":[
+            {
+                "track":"Canada",
+                "laps":70,
+                "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
                 "soft":[
                     {
@@ -256,10 +306,74 @@
                 ]
             }
         ],
-        "Canada":[
+        "United Kingdom":[
             {
-                "track":"Canada",
-                "laps":51,
+                "track":"Silverstone",
+                "laps":52,
+                "time_lost_pit":16.4,
+                "time_lost_pit_sc":8.2,
+                "soft":[
+                    {
+                        "time":0.000,
+                        "degadation":5,
+                        "time_lost_lap":0.100,
+                        "lifespan":13
+                    }
+                ],
+                "medium":[
+                    {
+                        "time":0.000,
+                        "degadation":5,
+                        "time_lost_lap":0.100,
+                        "lifespan":29
+                    }
+                ],
+                "hard":[
+                    {
+                        "time":0.000,
+                        "degadation":5,
+                        "time_lost_lap":0.100,
+                        "lifespan":13
+                    }
+                ]
+            }
+        ],
+        "France":[
+            {
+                "track":"Paul Ricard",
+                "laps":53,
+                "time_lost_pit":16.4,
+                "time_lost_pit_sc":8.2,
+                "soft":[
+                    {
+                        "time":0.000,
+                        "degadation":5,
+                        "time_lost_lap":0.100,
+                        "lifespan":13
+                    }
+                ],
+                "medium":[
+                    {
+                        "time":0.000,
+                        "degadation":5,
+                        "time_lost_lap":0.100,
+                        "lifespan":29
+                    }
+                ],
+                "hard":[
+                    {
+                        "time":0.000,
+                        "degadation":5,
+                        "time_lost_lap":0.100,
+                        "lifespan":13
+                    }
+                ]
+            }
+        ],
+        "Hungary":[
+            {
+                "track":"Hungary",
+                "laps":52,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
                 "soft":[
