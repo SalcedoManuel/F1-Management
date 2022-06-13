@@ -251,7 +251,7 @@
                 "hard":[
                     {
                         "time":1.800,
-                        "lifespan":35,
+                        "lifespan":30,
                         "time_lost_lap":0.040,
                         "degradation":2
                     }
