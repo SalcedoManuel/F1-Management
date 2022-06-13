@@ -2,6 +2,12 @@ console.log("Ejecutando Javascript...");
 // Asignamos a las variables la información del gran premio.
 const degradation_max = 60;
 
+let url = 'https://raw.githubusercontent.com/SalcedoManuel/F1-Management/main/local/race_info.json'
+fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+    
 var weather = "";
 
 const soft =   [0.000,13,0.07375,4];
@@ -187,6 +193,8 @@ function three_compounds(compound1,compound2,option) {
         let loops_laps = max_laps - race_length;
         let first_lap_loop = compound1[1]-loops_laps;
         lap_pit_2 = race_length - compound1[1];
+
+        
 
     }
 }
