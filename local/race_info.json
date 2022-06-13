@@ -235,41 +235,41 @@
                 "soft":[
                     {
                         "time":0.000,
-                        "degadation":5,
+                        "lifespan":10,
                         "time_lost_lap":0.100,
-                        "lifespan":10
+                        "degadation":5
                     }
                 ],
                 "medium":[
                     {
                         "time":0.600,
-                        "degadation":3,
+                        "lifespan":20,
                         "time_lost_lap":0.100,
-                        "lifespan":20
+                        "degadation":3
                     }
                 ],
                 "hard":[
                     {
                         "time":1.800,
-                        "degadation":2,
+                        "lifespan":35,
                         "time_lost_lap":0.040,
-                        "lifespan":35
+                        "degadation":2
                     }
                 ],
                 "inter":[
                     {
                         "time":10.827,
-                        "degadation":2,
+                        "lifespan":20,
                         "time_lost_lap":0.100,
-                        "lifespan":20
+                        "degadation":2
                     }
                 ],
                 "wet":[
                     {
                         "time":13.824,
-                        "degadation":3.5,
+                        "lifespan":25,
                         "time_lost_lap":0.100,
-                        "lifespan":25
+                        "degadation":3.5
                     }
                 ]
             }
