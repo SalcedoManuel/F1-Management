@@ -1,13 +1,26 @@
 console.log("Ejecutando Javascript...");
 // Asignamos a las variables la información del gran premio.
 const degradation_max = 60;
-
+var info_race = [];
 let url = 'https://raw.githubusercontent.com/SalcedoManuel/F1-Management/main/local/race_info.json'
 fetch(url)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => saveData(data))
     .catch(error => console.log(error));
-    
+
+// Extraer toda la información del JSON y seleccionar la del Gran Premio en el que estemos.    
+const grand_prix = document.getElementsByClassName("title")[0].innerHTML;
+console.log("You are playing in: " + grand_prix);
+
+// Después de obtener el nombre del Gran Premio se extrae del JSON la info sobre dicho GP.
+function saveData(data) {
+    console.log(data);
+    info_race = data[0][grand_prix]
+    console.log(info_race);
+}
+
+console.log(info_race)
+
 var weather = "";
 
 const soft =   [0.000,13,0.07375,4];
@@ -200,6 +213,7 @@ function three_compounds(compound1,compound2,option) {
 }
 
 function strategy() {
+    console.log(info_race);
     var option = 0;
     console.log("dentro");
     if (weather == "Dry-Dry") {
