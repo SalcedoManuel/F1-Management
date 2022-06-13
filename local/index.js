@@ -1,6 +1,5 @@
 console.log("Ejecutando Javascript...");
 // Asignamos a las variables la información del gran premio.
-const degradation_max = 60;
 var info_race = [];
 
 let url = 'https://raw.githubusercontent.com/SalcedoManuel/F1-Management/main/local/race_info.json'
@@ -24,7 +23,7 @@ var weather = "";
 var soft,medium,hard,inter,full_wet = [];
 
 // Variables de tiempo.
-var time_total_1,time_total_sc,time_pit = 0;
+var time_total_1,time_total_sc,time_pit,time_lost_pit,time_lost_pit_sc = 0;
 
 // Las 3 estrategias mas relevantes a una parada.
 var info_one_stop_1,info_one_stop_2,info_one_stop_3 = [];
@@ -74,68 +73,73 @@ function set_weather(boton){
 }
 
 function get_info_race() {
-    const race_length = Math.round(info_race["laps"]*race_length_type);
+    race_length = Math.round(info_race["laps"]*race_length_type);
     console.log("Longitud de la carrera: " + race_length);
 
-    const time_lost_pit = info_race["time_lost_pit"];
+    time_lost_pit = info_race["time_lost_pit"];
     console.log("Tiempo perdido en los boxes: " + time_lost_pit);
 
-    const time_lost_pit_sc = info_race["time_lost_pit_sc"];
+    time_lost_pit_sc = info_race["time_lost_pit_sc"];
     console.log("Tiempo perdido en los boxes: " + time_lost_pit_sc);
 
-    const time_earn_fuel = info_race["time_earn_fuel"];
+    time_earn_fuel = info_race["time_earn_fuel"];
     console.log("Tiempo ganado por tener menos peso por el fuel: " + time_earn_fuel);
 
-    const degradation_max = info_race["max_degradation"];
+    degradation_max = info_race["max_degradation"];
     console.log("Degradación máxima de los neumáticos: " + degradation_max);
 
-    const soft = info_race["soft"][0];
+    soft = info_race["soft"][0];
     console.log(soft);
 
-    const medium = info_race["medium"][0];
+    medium = info_race["medium"][0];
     console.log(medium);
 
-    const hard = info_race["hard"][0];
+    hard = info_race["hard"][0];
     console.log(hard);
 
-    const inter = info_race["inter"][0];
+    inter = info_race["inter"][0];
     console.log(inter);
 
-    const full_wet = info_race["wet"][0];
+    full_wet = info_race["wet"][0];
     console.log(full_wet);
 }
 
 
 
 function two_compounds(compound1,compound2,option) {
-    if (compound1["time"]+compound2[1]>=race_length) {
-        let max_laps = compound1[1]+compound2[1];
+    console.log("Funciona? ");
+    console.log(compound1["lifespan"]);
+    if (compound1["lifespan"]+compound2["lifespan"]>=race_length) {
+        let max_laps = compound1["lifespan"]+compound2["lifespan"];
         let loops_laps = max_laps - race_length;
-        let first_lap_loop = compound1[1]-loops_laps;
+        let first_lap_loop = compound1["lifespan"]-loops_laps;
 
-        for (let index = first_lap_loop; index < compound2[1]; index++) {
+        for (let index = first_lap_loop; index < compound2["lifespan"]; index++) {
             // lap_stop marca la vuelta de la que sería la parada.
             let lap_stop = index;
             // Variable usada para decirnos que se ha llegado a la vuelta de la parada.
             var best_tire = true;
             // Resetear todas las variables de los neumáticos.
+            // Neumático mas blando.
             let lap_compound1 = 0;
-            let time_compound1 = compound1[0];
+            let time_compound1 = compound1["time"];
             let deg_compound1 = 0;
             
+            // Tiempo que se añade por parar.
             let time_pit = 0;
 
+            // Neumático más duro.
             let lap_compound2 = 0;
-            let time_compound2 = compound2[0];
+            let time_compound2 = compound2["time"];
             let deg_compound2 = 0;
 
 
-            // Mientras no se llegue a la vuelta de la parada simular el neumático blando.
+            // Mientras no se llegue a la vuelta de la parada simular el neumático mas blando.
             while (best_tire){
                 if (lap_compound1 < lap_stop) {
-                    time_compound1 += compound1[2];
+                    time_compound1 += compound1["time_lost_lap"];
                     lap_compound1 += 1;
-                    deg_compound1 += compound1[3];
+                    deg_compound1 += compound1["degradation"];
                 }else{
                     best_tire = false;
                     time_pit = time_lost_pit;
@@ -144,9 +148,9 @@ function two_compounds(compound1,compound2,option) {
             };
             // Conociendo la vuelta de parada del neumático blando simulamos ahora con el medio.
             for (let index = lap_stop; index < race_length; index++) {
-                time_compound2 += compound2[2];
+                time_compound2 += compound2["time_lost_lap"];
                 lap_compound2 += 1;
-                deg_compound2 += compound2[3];                
+                deg_compound2 += compound2["degradation"];                
             }
             let points = time_compound1 + time_compound2 + time_pit;
             if (option == 1) {
@@ -192,13 +196,13 @@ function two_compounds(compound1,compound2,option) {
             }
         }
         // Sacaremos del Array time_simulation la info de la mejor estrategia.
-        lap_soft = time_simulation[lap_good][1];
-        deg_soft = time_simulation[lap_good][2];
-        lap_medium = time_simulation[lap_good][3];
-        deg_medium = time_simulation[lap_good][4];
-        lap_hard = time_simulation[lap_good][5];
-        deg_hard = time_simulation[lap_good][6];
-        points = time_simulation[lap_good][0];
+        lap_soft = time_simulation[lap_good][0];
+        deg_soft = time_simulation[lap_good][1];
+        lap_medium = time_simulation[lap_good][2];
+        deg_medium = time_simulation[lap_good][3];
+        lap_hard = time_simulation[lap_good][4];
+        deg_hard = time_simulation[lap_good][5];
+        points = time_simulation[lap_good][6];
         // Guardamos en info_one_stop_1 la info sobre esta estrategia.
         let info_one_stop = [lap_soft,deg_soft,lap_medium,deg_medium,lap_hard,deg_hard,points];
         if (option == 1) {
@@ -215,18 +219,14 @@ function two_compounds(compound1,compound2,option) {
 function three_compounds(compound1,compound2,option) {
     if (option == 1) {
         // Calcular el número de vueltas a estudio.
-        let max_laps = compound1[1]+compound2[1]+compound1[1];
+        let max_laps = compound1["lifespan"]+compound2["lifespan"]+compound1["lifespan"];
         let loops_laps = max_laps - race_length;
-        let first_lap_loop = compound1[1]-loops_laps;
-        lap_pit_2 = race_length - compound1[1];
-
-        
-
+        let first_lap_loop = compound1["lifespan"]-loops_laps;
+        lap_pit_2 = race_length - compound1["lifespan"];
     }
 }
 
 function strategy() {
-    console.log(info_race);
     var option = 0;
     if (weather == "Dry-Dry") {
         if (soft["lifespan"]+medium["lifespan"] >= race_length) {
@@ -278,10 +278,9 @@ for (let i = 0; i < calculo.length; i++) {
 function set_calculo(boton){
     // Calculamos primero la estrategia a una parada.
     // Para ello vemos si es viable la estrategia con blandos.
-    // time_total_1 es la estrategia a una parada.
-    time_total_1 = [boton.value,0,0];
+
+    get_info_race();
     if (weather != "" && race_length >= 0) {
-        get_info_race();
         strategy();
     }else{
         console.log("Marque las opciones para la simulación");
