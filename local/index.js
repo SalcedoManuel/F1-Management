@@ -93,29 +93,35 @@ function set_weather(boton){
 }
 
 function get_info_race() {
-    race_length = Math.round(info_race["laps"]*race_length_type);
+    const race_length = Math.round(info_race["laps"]*race_length_type);
     console.log("Longitud de la carrera: " + race_length);
 
-    time_lost_pit = info_race["time_lost_pit"];
+    const time_lost_pit = info_race["time_lost_pit"];
     console.log("Tiempo perdido en los boxes: " + time_lost_pit);
 
-    time_lost_pit_sc = info_race["time_lost_pit_sc"];
+    const time_lost_pit_sc = info_race["time_lost_pit_sc"];
     console.log("Tiempo perdido en los boxes: " + time_lost_pit_sc);
 
-    time_earn_fuel = info_race["time_earn_fuel"];
+    const time_earn_fuel = info_race["time_earn_fuel"];
     console.log("Tiempo ganado por tener menos peso por el fuel: " + time_earn_fuel);
 
-    max_degradation = info_race["max_degradation"];
+    const max_degradation = info_race["max_degradation"];
     console.log("Degradación máxima de los neumáticos: ");
 
-    soft = info_race["soft"][0];
+    const soft = info_race["soft"][0];
     console.log(soft);
 
-    medium = info_race["medium"][0];
+    const medium = info_race["medium"][0];
     console.log(medium);
 
-    hard = info_race["hard"][0];
+    const hard = info_race["hard"][0];
     console.log(hard);
+
+    const inter = info_race["inter"][0];
+    console.log(inter);
+
+    const full_wet = info_race["wet"][0];
+    console.log(full_wet);
 }
 
 
@@ -241,10 +247,8 @@ function three_compounds(compound1,compound2,option) {
 function strategy() {
     console.log(info_race);
     var option = 0;
-
-    console.log("dentro");
     if (weather == "Dry-Dry") {
-        if (soft[1]+medium[1]>= race_length) {
+        if (soft["1"]+medium[1]>= race_length) {
             option = 1;
             two_compounds(soft,medium,option);
         }
