@@ -2,6 +2,7 @@ console.log("Ejecutando Javascript...");
 // Asignamos a las variables la información del gran premio.
 const degradation_max = 60;
 var info_race = [];
+
 let url = 'https://raw.githubusercontent.com/SalcedoManuel/F1-Management/main/local/race_info.json'
 fetch(url)
     .then(response => response.json())
@@ -19,42 +20,22 @@ function saveData(data) {
 
 var weather = "";
 
-var soft =   [0.000,13,0.07375,4];
-var medium = [0.615,29,0.0500,2];
-var hard =   [1.847,36,0.0300,1];
-var time_lost_pit = 16.4;
-var time_lost_pit_sc = 8.2;
+// Neumáticos usados.
+var soft,medium,hard,inter,full_wet = [];
 
-var time_total_1 = 0;
-var time_total_sc = 0;
+// Variables de tiempo.
+var time_total_1,time_total_sc,time_pit = 0;
 
-var time_soft = soft[0];
-var lap_soft = 0;
-var deg_soft = 0;
+// Las 3 estrategias mas relevantes a una parada.
+var info_one_stop_1,info_one_stop_2,info_one_stop_3 = [];
 
-var time_medium = medium[0];
-var lap_medium = 0;
-var deg_medium = 0;
+// Las 3 paradas mas relevantes a dos paradas.
+var info_two_stop_1,info_one_stop_2,info_two_stop_3 = [];
 
-var time_hard = hard[0];
-var lap_hard = 0;
-var deg_hard = 0;
-
-var info_one_stop_1 = [];
-var info_one_stop_2 = [];
-var info_one_stop_3 = [];
-
-var info_two_stop_1 = [];
-var info_two_stop_2 = [];
-var info_two_stop_3 = [];
-
+// Variable usada que simula todas las vueltas.
 var time_simulation = [];
 
-var time_pit = 0;
-
-var race_length = 0;
-
-var race_length_type = 0;
+var race_length, race_length_type = 0;
 
 function reset_tires() {
     time_soft = soft[0];
@@ -105,8 +86,8 @@ function get_info_race() {
     const time_earn_fuel = info_race["time_earn_fuel"];
     console.log("Tiempo ganado por tener menos peso por el fuel: " + time_earn_fuel);
 
-    const max_degradation = info_race["max_degradation"];
-    console.log("Degradación máxima de los neumáticos: ");
+    const degradation_max = info_race["max_degradation"];
+    console.log("Degradación máxima de los neumáticos: " + degradation_max);
 
     const soft = info_race["soft"][0];
     console.log(soft);
@@ -127,7 +108,7 @@ function get_info_race() {
 
 
 function two_compounds(compound1,compound2,option) {
-    if (compound1[1]+compound2[1]>=race_length) {
+    if (compound1["time"]+compound2[1]>=race_length) {
         let max_laps = compound1[1]+compound2[1];
         let loops_laps = max_laps - race_length;
         let first_lap_loop = compound1[1]-loops_laps;
@@ -248,29 +229,29 @@ function strategy() {
     console.log(info_race);
     var option = 0;
     if (weather == "Dry-Dry") {
-        if (soft["1"]+medium[1]>= race_length) {
+        if (soft["lifespan"]+medium["lifespan"] >= race_length) {
             option = 1;
             two_compounds(soft,medium,option);
         }
-        if (soft[1]+hard[1]>=race_length) {
+        if (soft["lifespan"]+hard["lifespan"] >= race_length) {
             option =  2;
             two_compounds(soft,hard,option);
         }
-        if (medium[1]+hard[1]>=race_length) {
+        if (medium["lifespan"]+hard["lifespan"] >= race_length) {
             option = 3;
             two_compounds(medium,hard,option);
         }
         // Opción a DOS paradas.
-        if (soft[1]+medium[1]+soft[1]>= race_length) {
+        if (soft["lifespan"]+medium["lifespan"]+soft["lifespan"] >= race_length) {
             option = 1;
             three_compounds(soft,medium,soft,option);
         }
-        if (soft[1]+medium[1]+medium[1]>= race_length) {
+        if (soft["lifespan"]+medium["lifespan"]+medium["lifespan"] >= race_length) {
             option = 2;
             three_compounds(soft,medium,medium,option);
 
         }
-        if (soft[1]+hard[1]+soft[1]>=race_length) {
+        if (soft["lifespan"]+hard["lifespan"]+soft["lifespan"] >= race_length) {
             option = 3;
             three_compounds(soft,hard,soft,option);
         }
