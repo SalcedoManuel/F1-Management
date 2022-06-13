@@ -202,7 +202,7 @@
                     {
                         "time":0.000,
                         "degadation":4,
-                        "time_lost_lap":0.1475,
+                        "time_lost_lap":0.07375,
                         "lifespan":13
                     }
                 ],
@@ -210,7 +210,7 @@
                     {
                         "time":0.615,
                         "degadation":2,
-                        "time_lost_lap":0.050,
+                        "time_lost_lap":0.0500,
                         "lifespan":29
                     }
                 ],
@@ -218,7 +218,7 @@
                     {
                         "time":1.847,
                         "degadation":1,
-                        "time_lost_lap":0.030,
+                        "time_lost_lap":0.0300,
                         "lifespan":36
                     }
                 ]
