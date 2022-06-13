@@ -14,20 +14,16 @@ console.log("You are playing in: " + grand_prix);
 
 // Después de obtener el nombre del Gran Premio se extrae del JSON la info sobre dicho GP.
 function saveData(data) {
-    console.log(data);
-    info_race = data[0][grand_prix]
-    console.log(info_race);
+    info_race = data[0][grand_prix][0];
 }
-
-console.log(info_race)
 
 var weather = "";
 
-const soft =   [0.000,13,0.07375,4];
-const medium = [0.615,29,0.0500,2];
-const hard =   [1.847,36,0.0300,1];
-const time_lost_pit = 16.4;
-const time_lost_pit_sc = 8.2;
+var soft =   [0.000,13,0.07375,4];
+var medium = [0.615,29,0.0500,2];
+var hard =   [1.847,36,0.0300,1];
+var time_lost_pit = 16.4;
+var time_lost_pit_sc = 8.2;
 
 var time_total_1 = 0;
 var time_total_sc = 0;
@@ -58,6 +54,8 @@ var time_pit = 0;
 
 var race_length = 0;
 
+var race_length_type = 0;
+
 function reset_tires() {
     time_soft = soft[0];
     lap_soft = 0;
@@ -79,8 +77,8 @@ for(var i = 0; i < race.length; i++){
     }
 };
 function length_race(boton){
-    race_length = boton.value;
-    console.log(race_length);
+    race_length_type = boton.value;
+    console.log(race_length_type);
 }
 
 let clima = document.getElementsByClassName("Weather");
@@ -93,6 +91,34 @@ function set_weather(boton){
     weather = boton.value;
     console.log(weather);
 }
+
+function get_info_race() {
+    race_length = Math.round(info_race["laps"]*race_length_type);
+    console.log("Longitud de la carrera: " + race_length);
+
+    time_lost_pit = info_race["time_lost_pit"];
+    console.log("Tiempo perdido en los boxes: " + time_lost_pit);
+
+    time_lost_pit_sc = info_race["time_lost_pit_sc"];
+    console.log("Tiempo perdido en los boxes: " + time_lost_pit_sc);
+
+    time_earn_fuel = info_race["time_earn_fuel"];
+    console.log("Tiempo ganado por tener menos peso por el fuel: " + time_earn_fuel);
+
+    max_degradation = info_race["max_degradation"];
+    console.log("Degradación máxima de los neumáticos: ");
+
+    soft = info_race["soft"][0];
+    console.log(soft);
+
+    medium = info_race["medium"][0];
+    console.log(medium);
+
+    hard = info_race["hard"][0];
+    console.log(hard);
+}
+
+
 
 function two_compounds(compound1,compound2,option) {
     if (compound1[1]+compound2[1]>=race_length) {
@@ -198,7 +224,7 @@ function two_compounds(compound1,compound2,option) {
         time_simulation = [];
     }
 }
-
+// Función no operativa aún.
 function three_compounds(compound1,compound2,option) {
     if (option == 1) {
         // Calcular el número de vueltas a estudio.
@@ -215,6 +241,7 @@ function three_compounds(compound1,compound2,option) {
 function strategy() {
     console.log(info_race);
     var option = 0;
+
     console.log("dentro");
     if (weather == "Dry-Dry") {
         if (soft[1]+medium[1]>= race_length) {
@@ -268,6 +295,10 @@ function set_calculo(boton){
     // Para ello vemos si es viable la estrategia con blandos.
     // time_total_1 es la estrategia a una parada.
     time_total_1 = [boton.value,0,0];
-
-    strategy();
+    if (weather != "" && race_length >= 0) {
+        get_info_race();
+        strategy();
+    }else{
+        console.log("Marque las opciones para la simulación");
+    }
 }
