@@ -84,6 +84,11 @@ button[class^="slide_from_canada"]::after{
     background: url(images/flags/canada.png), linear-gradient(to bottom, transparent, black 70%);
     background-size: 100%;
 }
+button[class^="slide_from_uk"]::after{
+    background-blend-mode: darken;
+    background: url(images/flags/ReinoUnido.png), linear-gradient(to bottom, transparent, black 70%);
+    background-size: 100%;
+}
 button[class^="slide_from_austria"]::after{
     background-blend-mode: darken;
     background: url(images/flags/austria.png), linear-gradient(to bottom, transparent, black 70%);
