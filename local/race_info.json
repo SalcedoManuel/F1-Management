@@ -203,7 +203,7 @@
                 "soft":[
                     {
                         "time":0.000,
-                        "degadation":4,
+                        "degradation":4,
                         "time_lost_lap":0.07375,
                         "lifespan":13
                     }
@@ -211,7 +211,7 @@
                 "medium":[
                     {
                         "time":0.615,
-                        "degadation":2,
+                        "degradation":2,
                         "time_lost_lap":0.0500,
                         "lifespan":29
                     }
@@ -219,7 +219,7 @@
                 "hard":[
                     {
                         "time":1.847,
-                        "degadation":1,
+                        "degradation":1,
                         "time_lost_lap":0.0300,
                         "lifespan":36
                     }
@@ -237,7 +237,7 @@
                         "time":13.824,
                         "lifespan":25,
                         "time_lost_lap":0.100,
-                        "degadation":3.5
+                        "degradation":3.5
                     }
                 ]
             }
@@ -287,7 +287,7 @@
                         "time":13.824,
                         "lifespan":25,
                         "time_lost_lap":0.100,
-                        "degadation":3.5
+                        "degradation":3.5
                     }
                 ]
             }
