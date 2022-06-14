@@ -25,6 +25,9 @@ var soft,medium,hard,inter,full_wet = [];
 // Variables de tiempo.
 var time_total_1,time_total_sc,time_pit,time_lost_pit,time_lost_pit_sc = 0;
 
+// Las 3 estrategias sin paradas (SOLO MODO 5 VUELTAS)
+var info_zero_stop_1,info_zero_stop_2,info_zero_stop_3 = [];
+
 // Las 3 estrategias mas relevantes a una parada.
 var info_one_stop_1,info_one_stop_2,info_one_stop_3 = [];
 
@@ -73,7 +76,11 @@ function set_weather(boton){
 }
 
 function get_info_race() {
-    race_length = Math.round(info_race["laps"]*race_length_type);
+    if (race_length_type != 5) {
+        race_length = Math.round(info_race["laps"]*race_length_type);
+    }else{
+        race_length = race_length_type;
+    }
     console.log("Longitud de la carrera: " + race_length);
 
     time_lost_pit = info_race["time_lost_pit"];
@@ -230,9 +237,28 @@ function three_compounds(compound1,compound2,option) {
     }
 }
 
+function strategy_no_pit(compound1,option) {
+    if (weather == "Dry-Dry") {
+        let deg_compound1 = 0;
+        let points = 0;
+        for (let i = 1; i <= race_legth; i++) {
+           deg_compound1 += compound1["degradation"];
+           points += compound1["time"] + compound1["time_lost_lap"];
+        }
+        if (option == 1) {
+            info_zero_stop_1 = [race_length,deg_compound1,0,0,0,0,points];
+        } else if (option == 2) {
+            info_zero_stop_2 = [0,0,race_length,deg_compound1,0,0,points];
+        } else if (option == 3) {
+            info_zero_stop_3 = [0,0,0,0,race_length,deg_compound1,points];
+        }
+        
+    }
+}
+
 function strategy() {
     var option = 0;
-    if (weather == "Dry-Dry") {
+    if (weather == "Dry-Dry" && race_length != 5) {
         if (soft["lifespan"]+medium["lifespan"] >= race_length) {
             option = 1;
             two_compounds(soft,medium,option);
@@ -261,13 +287,18 @@ function strategy() {
         }
 
 
-    } else if (weather == "Dry-Wet") {
+    } else if (weather == "Dry-Wet" && race_length != 5) {
         
-    } else if (weather == "Wet-Wet") {
+    } else if (weather == "Wet-Wet" && race_length != 5) {
         
-    } else if (weather == "Wet-Dry") {
+    } else if (weather == "Wet-Dry" && race_length != 5) {
         
+    }else{
+        strategy_no_pit(soft,1);
+        strategy_no_pit(medium,2);
+        strategy_no_pit(hard_3);
     }
+
     console.log(info_one_stop_1);
     console.log(info_one_stop_2);
     console.log(info_one_stop_3);
@@ -276,10 +307,10 @@ function strategy() {
 calculo = document.getElementsByClassName("calculo");
 for (let i = 0; i < calculo.length; i++) {
     calculo[i].onclick = (ev) =>{
-        set_calculo(ev.target);
+        set_calculo();
     }    
 }
-function set_calculo(boton){
+function set_calculo(){
     // Calculamos primero la estrategia a una parada.
     // Para ello vemos si es viable la estrategia con blandos.
 
