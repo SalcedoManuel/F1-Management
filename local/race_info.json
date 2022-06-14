@@ -249,7 +249,7 @@
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":9,
                 "time_earn_fuel":0.090,
-                "max_degradation":59,
+                "max_degradation":60,
                 "soft":[
                     {
                         "time":0.000,
