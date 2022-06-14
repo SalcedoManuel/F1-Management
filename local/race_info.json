@@ -298,28 +298,51 @@
                 "laps":70,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
+                "time_earn_fuel":0.0491,
+                "max_degradation":60,
                 "soft":[
                     {
                         "time":0.000,
-                        "degadation":5,
-                        "time_lost_lap":0.100,
-                        "lifespan":13
+                        "degadation":3,
+                        "time_lost_lap":0.064,
+                        "lifespan":20,
+                        "info": ""
                     }
                 ],
                 "medium":[
                     {
-                        "time":0.000,
-                        "degadation":5,
-                        "time_lost_lap":0.100,
-                        "lifespan":29
+                        "time":0.455,
+                        "degadation":2,
+                        "time_lost_lap":0.041,
+                        "lifespan":30,
+                        "info": ""
                     }
                 ],
                 "hard":[
                     {
-                        "time":0.000,
-                        "degadation":5,
-                        "time_lost_lap":0.100,
-                        "lifespan":13
+                        "time":1.367,
+                        "degadation":1.5,
+                        "time_lost_lap":0.024,
+                        "lifespan":40,
+                        "info": ""
+                    }
+                ],
+                "inter":[
+                    {
+                        "time":8.723,
+                        "lifespan":38,
+                        "time_lost_lap":0.111,
+                        "degradation":2,
+                        "info": ""
+                    }
+                ],
+                "wet":[
+                    {
+                        "time":10.865,
+                        "lifespan":49,
+                        "time_lost_lap":0.111,
+                        "degradation":1.5,
+                        "info": ""
                     }
                 ]
             }
