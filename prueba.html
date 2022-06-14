@@ -1,12 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="prueba.css">
-        <title>prueba boton</title>
-    </head>
-    <body>
-        <div class="wrapper">
-            <button class="slide_from_top"><p class="tracks">Miami</p></button>
-          </div>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="backend.js" defer></script>
+    <link rel="shortcut icon" href="images/logo/favicon.png">
+    <title>Cuboingenio</title>
+</head>
+<body>
+    <!-- Cabecera de la página web -->
+    <header>
+        <a href="web/sign_in.html">
+            <button class="button_header">
+                <h3>Sign In</h3>
+            </button>
+        </a> 
+        <a href="web/sign_out.html">
+            <button class="button_header">
+                <h3>Sign Out</h3>
+            </button>
+        </a>
+
+        <span>
+            <div class="dropdown">
+                <button class="button_header"><h3>Languaje</h3></button>
+                <div class="dropdown-content" style="left:0;">
+                <a href="#" style="text-align: center;">
+                    <p><img src="images/items/spanish_flag.png" alt="spanish_flag" style="width: 10px; height:10px;"> Español</p>                                          
+                </a>
+                <a href="#" style="text-align: center;">
+                    <p><img src="images/items/english_flag.ico" alt="english_flag" style="width: 10px; height:10px;"> English</p>
+                </a>
+                <a href="#" style="text-align: center;">
+                    <p><img src="images/items/france_flag.png" alt="france_flag" style="width: 10px; height:10px;"> Français</p>
+                </a>
+                </div>
+              </div>
+        </span>
+
+        <a href="Help">
+            <button class="button_header" style="margin-right: 1%;"><h3>Help</h3></button>
+        </a>
+
+    </header>
+
+    <!-- Logo de la empresa -->
+    <div style="margin-right: 1%;">
+        <img src="images/logo/logo_large.png" alt="logo_cubingenio" style="display: block;margin: auto;width: 100%;">
+    </div>
+
+
+<div style="background-color: blue; height: 15%; margin-bottom: 2cm;">
+    <div id="columna1">
+        <span>
+            <a href="#">
+                <button class="button_init">
+                    <h2>Inicio</h2>
+                </button>
+            </a> 
+            <a href="#">
+                <button class="button_init">
+                    <h2>Productos</h2>
+                </button>
+            </a>
+            <a href="#">
+                <button class="button_init">
+                    <h2>Ofertas</h2>
+                </button>
+            </a>
+            <a href="#">
+                <button class="button_init">
+                    <h2>Tiendas</h2>
+                </button>
+            </a>
+            <a href="#">
+                <button class="button_init">
+                    <h2>Contacto</h2>
+                </button>
+            </a>
+    
+        </span>
+    </div>
+    <div style="margin-left: 75%;">
+        <span>
+            <a href="#">
+                <span id="busqueda">
+                    <input type="text" id="caja" placeholder="Search" style="width: 90%;">
+                    <span class="display-extension">
+                        <div>
+                            <button id="display1" style="display: none;"></button>
+                        </div>
+                        <div>
+                            <button id="display2" style="display: none;"></button>
+                        </div>
+                        <div>
+                            <button id="display3" style="display: none;"></button>
+                        </div>                    
+                    </span>
+                </span>
+            </a>
+        </span>
+    </div>
+</div>
+
+
+<br>
+    <!-- Pie de página de la tienda web -->
+    <footer>
+        <a href="web/sign_in.html">
+            <button class="button_footer">
+                <h4>Condiciones de Uso y Venta</h4>
+            </button>
+        </a>
+        <a href="web/sign_in.html">
+            <button class="button_footer">
+                <h4>Aviso de Privacidad</h4>
+            </button>
+        </a>
+        <a href="web/sign_in.html">
+            <button class="button_footer">
+                <h4>Área Legal</h4>
+            </button>
+        </a>
+        <a href="web/sign_in.html">
+            <button class="button_footer">  
+                <h4>Cookies</h4>
+            </button>
+        </a>
+        <a href="#">
+            <button class="button_footer">
+                <h4>©1998-2022, Cuboingenio.es</h4>
+            </button>
+        </a>
+            
+            
+
+            
+    </footer>
+</body>
 </html>
