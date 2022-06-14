@@ -5,6 +5,97 @@ body{
     background-size: cover;
     min-width: 600px;
 }
+header{
+    background-color: rgb(89, 0, 255);
+    text-align: right;
+}
+footer{
+    text-align: center;
+}
+
+#columna1{
+  position: absolute;
+  text-align: left;
+  left:1%;
+  width:70%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#busqueda{
+  text-align: center;
+}
+#caja{
+  margin-top: 10%;
+  height: 50%;
+}
+.display-extension{
+  text-align: center;
+}
+#display1, #display2, #display3{
+  text-align: center;
+  width: 80%;
+  margin-left: 0%;
+}
+.button_header{
+    background-color: transparent;
+    border-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-language-override: initial;
+    color: aliceblue;
+    text-align: center;
+}
+.button_footer{
+  background-color: transparent;
+  border-style: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-language-override: initial;
+}
+.button_init{
+  width: 15%;
+  margin-left: 3%;
+}
+
+.dropbtn {
+    background-color: #4caf4f00;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
 button {
     font-size: 2em;
     background: #000000;
