@@ -85,8 +85,8 @@ function get_info_race() {
     time_earn_fuel = info_race["time_earn_fuel"];
     console.log("Tiempo ganado por tener menos peso por el fuel: " + time_earn_fuel);
 
-    degradation_max = info_race["max_degradation"];
-    console.log("Degradación máxima de los neumáticos: " + degradation_max);
+    max_degradation = info_race["max_degradation"];
+    console.log("Degradación máxima de los neumáticos: " + max_degradation);
 
     soft = info_race["soft"][0];
     console.log(soft);
@@ -103,7 +103,6 @@ function get_info_race() {
     full_wet = info_race["wet"][0];
     console.log(full_wet);
 }
-
 
 
 function two_compounds(compound1,compound2,option) {
@@ -136,8 +135,13 @@ function two_compounds(compound1,compound2,option) {
             // Mientras no se llegue a la vuelta de la parada simular el neumático mas blando.
             while (best_tire){
                 if (lap_compound1 < lap_stop) {
-                    time_compound1 += compound1["time_lost_lap"];
+                    let time_lap = compound1["time"] + compound1["time_lost_lap"];
+                    time_compound1 += time_lap;
                     lap_compound1 += 1;
+                    if (deg_compound1 >= max_degradation) {
+                        let time_extra = deg_compound1 - max_degradation;
+                        time_compound1 += (time_extra * compound1["time_lost_lap"]);
+                    }
                     deg_compound1 += compound1["degradation"];
                 }else{
                     best_tire = false;
@@ -147,7 +151,8 @@ function two_compounds(compound1,compound2,option) {
             };
             // Conociendo la vuelta de parada del neumático blando simulamos ahora con el medio.
             for (let index = lap_stop; index < race_length; index++) {
-                time_compound2 += compound2["time_lost_lap"];
+                let time_lap = compound2["time"] + compound2["time_lost_lap"];
+                time_compound2 += time_lap;
                 lap_compound2 += 1;
                 deg_compound2 += compound2["degradation"];                
             }
