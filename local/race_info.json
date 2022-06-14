@@ -303,7 +303,7 @@
                 "soft":[
                     {
                         "time":0.000,
-                        "degadation":3,
+                        "degradation":3,
                         "time_lost_lap":0.064,
                         "lifespan":20,
                         "info": ""
@@ -312,7 +312,7 @@
                 "medium":[
                     {
                         "time":0.455,
-                        "degadation":2,
+                        "degradation":2,
                         "time_lost_lap":0.041,
                         "lifespan":30,
                         "info": ""
@@ -321,7 +321,7 @@
                 "hard":[
                     {
                         "time":1.367,
-                        "degadation":1.5,
+                        "degradation":1.5,
                         "time_lost_lap":0.024,
                         "lifespan":40,
                         "info": ""
