@@ -6,6 +6,56 @@ body{
     min-width: 600px;
 }
 
+.icons{
+    display: flex;
+    column-gap: 25px;
+}
+.icon{
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 26px;
+    color: #fff;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+    transition-property: outline-offset, outline-color,background-color;
+    transition-duration: 0.25s;
+}
+.icon:hover{
+    outline-offset: 4px;
+}
+.icon:hover i{
+    animation: shake 0.25s;
+}
+.ri-instagram-line{
+   background-image: url('images/tires/soft.png');
+}
+.icon--instagram:hover{
+    background-image:
+    radial-gradient(circle at 30% 107%,
+     #fdf497 0%, #fdf497 5%,
+     #fd5949, #d6249f 60%,
+     #285AEB 90%);
+    outline-color: #a02d76;
+}
+@keyframes shake {
+    10%{transform: rotate(15deg);}
+    20%{transform: rotate(-15deg);}
+    30%{transform: rotate(15deg);}
+    40%{transform: rotate(-15deg);}
+}
+
+
+
+
+
+
+
+
+
 button {
     font-size: 2em;
     background: #000000;

@@ -1,0 +1,91 @@
+body{
+    background-color: black;
+}
+.icons{
+    display: flex;
+    column-gap: 25px;
+    margin: 5%;
+}
+.icon{
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 26px;
+    color: #fff;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+    transition-property:
+     outline-offset, outline-color,
+     background-color;
+     transition-duration: .25s;
+}
+.icon:hover{
+    outline-offset: 4px;
+}
+.icon:hover i{
+    animation: shake .25s;
+}
+.icon--soft{
+    background-image: url(F1-Management/local/css/images/tires/soft.png);
+    background-size: contain;
+}
+.icon--soft:hover{
+    background-color: red;
+    outline-color:#d44343;
+    background-image: url(F1-Management/local/css/images/tires/soft.png);
+    background-size: contain;
+}
+
+
+.icon--medium{
+    background-image: url(F1-Management/local/css/images/tires/medium.png);
+    background-size: contain;
+}
+.icon--medium:hover{
+    background-color: yellow;
+    outline-color:#ffee51;
+    background-image: url(F1-Management/local/css/images/tires/medium.png);
+    background-size: contain;
+}
+
+.icon--hard{
+    background-image: url(F1-Management/local/css/images/tires/hard.png);
+    background-size: contain;
+}
+.icon--hard:hover{
+    background-color: rgb(255, 255, 255);
+    outline-color:#999999;
+    background-image: url(F1-Management/local/css/images/tires/hard.png);
+    background-size: contain;
+}
+
+.icon--inter{
+    background-image: url(F1-Management/local/css/images/tires/inter.png);
+    background-size: contain;
+}
+.icon--inter:hover{
+    background-color: rgb(0, 87, 14);
+    outline-color:#00ff00;
+    background-image: url(F1-Management/local/css/images/tires/inter.png);
+    background-size: contain;
+}
+
+.icon--full_wet{
+    background-image: url(F1-Management/local/css/images/tires/full_wet.png);
+    background-size: contain;
+}
+.icon--full_wet:hover{
+    background-color: rgb(0, 89, 255);
+    outline-color:#008cff;
+    background-image: url(F1-Management/local/css/images/tires/full_wet.png);
+    background-size: contain;
+}
+@keyframes shake {
+    10%{transform: rotate(15deg);}
+    20%{transform: rotate(-15deg);}
+    30%{transform: rotate(15deg);}
+    40%{transform: rotate(-15deg);}
+}
