@@ -239,6 +239,13 @@ button[class^="slide_"]::after {
     font-weight:300;
     text-align: center;
 }
+.f1{
+    font-family: "FormulaUno";
+    padding: auto;
+    color: black;
+    text-align: center;
+    border-radius: 20px;
+}
 .title{
     font-family: "FormulaUno";
     padding: auto;
