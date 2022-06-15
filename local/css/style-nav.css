@@ -41,5 +41,4 @@ body{
 .nav__link:hover::after{
     transform: scaleX(1);
     transform-origin: left;
-    color: red;
 }
