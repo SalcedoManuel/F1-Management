@@ -225,7 +225,7 @@ button[class^="slide_"]::after {
 
 
 
-.wrapper{
+.wrapper,.button_group{
     text-align: center;
     margin-top: 1%;
     margin-bottom: 1%;

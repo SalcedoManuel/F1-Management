@@ -42,7 +42,7 @@ button {
     text-align: center;
     border-radius: 20px;
 }
-.wrapper{
+.wrapper,.button_group{
     text-align: center;
     margin-top: 1%;
     margin-bottom: 1%;
@@ -54,6 +54,9 @@ button {
     font-variant-position: normal;
     font-family: 'FormulaUno';
     font-size: 200%;
+}
+.buttons_options{
+    font-size: 100%;
 }
 
 /* Styles of Simulation Option */
