@@ -58,9 +58,12 @@ button {
 .buttons_options{
     font-size: 200%;
 }
+.Laps:hover{
+    background-blend-mode: darken;
+    background: url(images/flags/end_race.png), linear-gradient(to bottom, transparent, black 70%);
+}
 /* Styles of Simulation Option */
 #display{
     background-color: #ffffff;
     font-family: 'FormulaUno';
-
 }
