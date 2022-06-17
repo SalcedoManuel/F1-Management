@@ -5,10 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Permitir sólo scripts y ficheros de la máquina local -->
-    <!-- Con esto se elimina el aviso de seguridad: Insecure Content-Security-Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self';" />
-
     <!-- Hoja de estilo de la interfaz -->
     <link rel="stylesheet" href="local/css/style.css">
     <link rel="stylesheet" href="local/css/style-nav.css">
@@ -19,12 +15,13 @@
     <!-- Cargar el proceso asociado a esta página -->
     <script src="index.js" defer></script>
     <script src="index-translate.js" defer></script>
+    <script src="index-sliceimages.js"></script>
     <title>F1 Management</title>
 </head>
 <body>
-    <nav class="nav container">
+    <nav class="nav container" style="height: 50px;">
         <span class="nav__logo">
-            <h1 class="f1 init">F1 Management <img src="local/css/images/extra/car_animate.gif" /></h1>
+            <img style="height: 30px;" src="local/css/images/logo/f1-management.png" alt="">
         </span>
         <ul class="nav__list">
           <li class="nav__item">
@@ -43,7 +40,22 @@
             <a href="#" class="nav__link f1" ></a>
           </li>
         </ul>
-      </nav>
+    </nav>
+    <hr>
+    <section style=" margin-left:8vw; width: 90%;">
+      <img style="width: 20px; height: 50px;  margin-bottom: 75px;" src="local/items/flecha.png" alt="" onclick="plusImg(-1)">
+      <img style="height: 200px; width: 90%;" id="Azerbai" src="local/css/images/background/azerbaiyan-background.png" alt="Altura 200px 16:9">
+      <img style="width: 20px; height: 50px;  margin-bottom: 75px;" src="local/items/flecha-derecha.png" alt="" onclick="plusImg(+1)">
+      <div  style="background-color: rgba(255, 255, 255, 0.904); height: 20px; width: 90%; margin-left: 25px; border-radius: 5px;justify-content: center;">
+        <span style="display:flex;justify-content:center;">
+          <img id="botoncitos1" style="margin: 5px; width: 10px; height: 10px;" src="local/css/images/tires/soft.png" alt="" onclick="change_Img(1)">
+          <img id="botoncitos2" style="margin: 5px; width: 10px; height: 10px"src="local/items/point-hueco.png" alt="" onclick="change_Img(2)">
+          <img id="botoncitos3" style="margin: 5px; width: 10px; height: 10px"src="local/items/point-hueco.png" alt="" onclick="change_Img(3)">
+          <img id="botoncitos4" style="margin: 5px; width: 10px; height: 10px"src="local/items/point-hueco.png" alt="" onclick="change_Img(4)">
+          <img id="botoncitos5" style="margin: 5px; width: 10px; height: 10px"src="local/items/point-hueco.png" alt="" onclick="change_Img(5)">
+        </span>
+      </div>
+    </section>
     <hr>
     <h5 class="title"> Selecciona el Gran Premio del que quieras informacion.</h5>
     <hr>
