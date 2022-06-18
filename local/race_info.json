@@ -294,7 +294,12 @@
         ],
         "Canada":[
             {
-                "track":"Canada",
+                "track":"Gilles Villeneuve",
+                "country":"Canada",
+                "turn-right": "8",
+                "turn-left":"6",
+                "truck_sense":"horario",
+                "tires_more_deg":"rear tires",
                 "laps":70,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
