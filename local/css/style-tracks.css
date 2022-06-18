@@ -58,9 +58,57 @@ button {
 .buttons_options{
     font-size: 200%;
 }
+.buttons_options:hover{
+    animation: neon 5s infinite;
+}
+@keyframes neon {
+    0%, 39%, 41%, 59%, 61%, 100% {
+        text-shadow:
+        white 0 0 12px,
+        #e02e2e 0 0 24px,
+        #ff0000 0 0 36px;
+    }
+    40%, 60%{
+        text-shadow: none;
+    }
+}
 .Laps:hover{
     background-blend-mode: darken;
     background: url(images/flags/end_race.png), linear-gradient(to bottom, transparent, black 70%);
+}   
+#Weather_sun:hover{
+    background-blend-mode: darken;
+    background: url(images/weather/sol.png),linear-gradient(to top, transparent, black 80%);
+    background-size:100%;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+#Weather_wet:hover{
+    background: url(images/weather/lluvia.png);
+    background-size: 50%;
+}
+#Weather_sun_wet:hover{
+    background-blend-mode: darken;
+    background:url(images/weather/lluvia-sol.png);
+    background-size: 60%;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.calculo:hover{
+    animation: neonf1 5s infinite;
+}
+
+@keyframes neonf1 {
+    0%, 39%, 41%, 59%, 61%, 100% {
+        text-shadow:
+        white 0 0 12px,
+        #ffffff 0 0 24px,
+        #ffffff 0 0 36px;
+    }
+    40%, 60%{
+        text-shadow: none;
+    }
 }
 /* Styles of Simulation Option */
 #display{
