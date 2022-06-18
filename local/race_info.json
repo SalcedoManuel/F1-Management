@@ -299,7 +299,7 @@
                 "turn_right": "8",
                 "turn_left":"6",
                 "truck_sense":"horario",
-                "tires_more_deg":"rear tires",
+                "tires_more_deg":"neumáticos traseros",
                 "laps":70,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
