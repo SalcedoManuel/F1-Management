@@ -2,21 +2,21 @@ console.log("Ejecutando Javascript...");
 // Asignamos a las variables la información del gran premio.
 var info_race = [];
 
-let url = 'https://raw.githubusercontent.com/SalcedoManuel/F1-Management/main/local/race_info.json'
-fetch(url)
-    .then(response => response.json())
-    .then(data => saveData(data))
-    .catch(error => console.log(error));
+// Variables para usar en el display.
+var track_name = "";
+var country = "";
+var right_turn = "";
+var left_turn = "";
+var track_sense = "";
+var name_tires_most_deg = "";
 
-// Extraer toda la información del JSON y seleccionar la del Gran Premio en el que estemos.    
-const grand_prix = document.getElementsByClassName("title")[0].innerHTML;
-console.log("You are playing in: " + grand_prix);
+// Variable del display.
+display = document.getElementById("display")
+One_Stop1 = document.getElementById("One_Stop1")
+One_Stop2 = document.getElementById("One_Stop2")
+One_Stop3 = document.getElementById("One_Stop3")
 
-// Después de obtener el nombre del Gran Premio se extrae del JSON la info sobre dicho GP.
-function saveData(data) {
-    info_race = data[0][grand_prix][0];
-}
-
+// Variable que marca el clima.
 var weather = "";
 
 // Neumáticos usados.
@@ -37,8 +37,25 @@ var info_two_stop_1,info_one_stop_2,info_two_stop_3 = [];
 // Variable usada que simula todas las vueltas.
 var time_simulation = [];
 
+// Variables usadas para marcar la longitud de carrera.
 var race_length, race_length_type = 0;
 
+let url = 'https://raw.githubusercontent.com/SalcedoManuel/F1-Management/main/local/race_info.json'
+fetch(url)
+    .then(response => response.json())
+    .then(data => saveData(data))
+    .catch(error => console.log(error));
+
+// Extraer toda la información del JSON y seleccionar la del Gran Premio en el que estemos.    
+const grand_prix = document.getElementsByClassName("title")[0].innerHTML;
+console.log("You are playing in: " + grand_prix);
+
+// Después de obtener el nombre del Gran Premio se extrae del JSON la info sobre dicho GP.
+function saveData(data) {
+    info_race = data[0][grand_prix][0];
+}
+
+// Función encargada de resetear los valores de los neumáticos.
 function reset_tires() {
     time_soft = soft[0];
     lap_soft = 0;
@@ -53,6 +70,7 @@ function reset_tires() {
     deg_hard = 0;
 }
 
+// Se encarga de obtener el tipo de carrera que el usuario quiere simular.
 let race = document.getElementsByClassName("Laps");
 for(var i = 0; i < race.length; i++){
     race[i].onclick = (ev)=>{
@@ -64,6 +82,7 @@ function length_race(boton){
     console.log(race_length_type);
 }
 
+// Se encarga de obtener el clima que el usuario a elegido.
 let clima = document.getElementsByClassName("Weather");
 for (let i = 0; i < clima.length; i++) {
     clima[i].onclick = (ev)=>{
@@ -75,7 +94,17 @@ function set_weather(boton){
     console.log(weather);
 }
 
+// Conociendo el tipo de carrera, se obtiene la cantidad de vueltas.
+// Además se extraen del JSON de GITHUB toda la información sobre el Grand Premio.
+
 function get_info_race() {
+    track_name = info_race["track"];
+    country = info_race["country"];
+    right_turn = info_race["turn_right"];
+    right_left = info_race["turn_left"];
+    track_sense = info_race["truck_sense"];
+    name_tires_most_deg = info_race["tires_more_deg"];
+
     if (race_length_type != 5) {
         race_length = Math.round(info_race["laps"]*race_length_type);
     }else{
@@ -111,10 +140,9 @@ function get_info_race() {
     console.log(full_wet);
 }
 
-
+// Función que busca la estrategia más rápida a UNA parada.
+// Se introducen los compuestos a simular y dependiendo de la opción se guarda en una opción.
 function two_compounds(compound1,compound2,option) {
-    console.log("Funciona? ");
-    console.log(compound1["lifespan"]);
     if (compound1["lifespan"]+compound2["lifespan"]>=race_length) {
         let max_laps = compound1["lifespan"]+compound2["lifespan"];
         let loops_laps = max_laps - race_length;
@@ -237,6 +265,7 @@ function three_compounds(compound1,compound2,option) {
     }
 }
 
+// Función creada para simular una carrera sin paradas.
 function strategy_no_pit(compound1,option) {
     if (weather == "Dry-Dry") {
         let deg_compound1 = 0;
@@ -255,7 +284,7 @@ function strategy_no_pit(compound1,option) {
         
     }
 }
-
+// Función encargada de simular TODA la ESTRATEGIA.
 function strategy() {
     var option = 0;
     if (weather == "Dry-Dry" && race_length != 5) {
@@ -304,12 +333,14 @@ function strategy() {
     console.log(info_one_stop_3);
 }
 
+// Esta función se encarga se iniciar el calculo de la simulación.
 calculo = document.getElementsByClassName("calculo");
 for (let i = 0; i < calculo.length; i++) {
     calculo[i].onclick = (ev) =>{
         set_calculo();
     }    
 }
+// La función que realiza la simulación.
 function set_calculo(){
     // Calculamos primero la estrategia a una parada.
     // Para ello vemos si es viable la estrategia con blandos.
@@ -317,7 +348,12 @@ function set_calculo(){
     get_info_race();
     if (weather != "" && race_length >= 0) {
         strategy();
+        display.innerHTML = "El " + track_name + " situado en " + country + " es un circuito con " + 
+                            right_turn + " curvas a derechas y " + left_turn + " curvas a izquierda "
+                            + "siendo este de sentido " + track_sense + "."+ "<br>" + " Las ruedas con mayor degradacion generalmente son los " +
+                            name_tires_most_deg + ".";
     }else{
+        display.innerHTML = "Marque las opciones para la simulación";
         console.log("Marque las opciones para la simulación");
     }
 }
