@@ -115,3 +115,38 @@ button {
     background-color: #ffffff;
     font-family: 'FormulaUno';
 }
+
+
+
+.box {
+    display: inline-block;
+    height: 50px;
+    background: red;
+    color: transparent;
+  }
+
+  #one {
+    background-image: url(images/tires/soft.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  #two {
+    position: relative;
+    right: 25px;
+    background: blue;
+    background-image: url(images/tires/medium.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  #three {
+    position: relative;
+    right: 30px;
+    background-image: url(images/flags/end_race.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+
+  }
