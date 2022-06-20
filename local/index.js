@@ -10,11 +10,65 @@ var left_turn = "";
 var track_sense = "";
 var name_tires_most_deg = "";
 
-// Variable del display.
+// Variable del display de la información base.
 display = document.getElementById("display")
-One_Stop1 = document.getElementById("One_Stop1")
-One_Stop2 = document.getElementById("One_Stop2")
-One_Stop3 = document.getElementById("One_Stop3")
+
+// Variable que muestra la información escrita sobre la primera opción
+// ESTRATEGIA A UNA PARADA BLANDO - MEDIO.
+display_one_stop_1 = document.getElementById("display_one_stop_1");
+display_one_stop_2 = document.getElementById("display_one_stop_2");
+display_one_stop_3 = document.getElementById("display_one_stop_3");
+
+// Display que muestra el neumático de inicio.
+one = document.getElementById("one");
+// Display que muestra el color del neumático de inicio.
+two = document.getElementById("two");
+// Display que muestra el neumático después de la parada.
+three = document.getElementById("three");
+// Display que muestra el color del neumático después de la parada.
+four = document.getElementById("four");
+// Display que muestra la bandera a cuadros.
+five = document.getElementById("five");
+
+// Display que muestra el neumático de inicio.
+six = document.getElementById("six");
+// Display que muestra el color del neumático de inicio.
+seven = document.getElementById("seven");
+// Display que muestra el neumático después de la parada.
+eight = document.getElementById("eight");
+// Display que muestra el color del neumático después de la parada.
+nine = document.getElementById("nine");
+// Display que muestra la bandera a cuadros.
+ten = document.getElementById("ten");
+
+// Display que muestra el neumático de inicio.
+eleven = document.getElementById("eleven");
+// Display que muestra el color del neumático de inicio.
+twelve = document.getElementById("twelve");
+// Display que muestra el neumático después de la parada.
+thirteen = document.getElementById("thirteen");
+// Display que muestra el color del neumático después de la parada.
+fourteen = document.getElementById("fourteen");
+// Display que muestra la bandera a cuadros.
+fifteen = document.getElementById("fifteen");
+
+// Style Tire Soft
+const soft_tire_style = "background-image: css/images/tires/soft.png;width:50px"+
+                  "background-size: contain; background-repeat: no-repeat;" + "background-color: red;"
+                  "border-bottom-left-radius: 50%;border-top-left-radius: 50%;" +
+                  "position: relative; z-index: 2;";
+const red_style = "position: relative;right: 30px;background: red;background-size: contain;background-repeat: no-repeat;";
+
+const medium_tire_style = "position: relative;right: 50px;background-image: url(css/images/tires/medium.png);" +
+                          "background-size: contain;background-repeat: no-repeat;z-index: 1;"+
+                          "background-color: yellow;border-bottom-left-radius: 50%;border-top-left-radius: 50%;";
+const yellow_style = "position: relative;right: 60px;background:yellow;";
+
+const hard_tire_style = "position: relative;right: 50px;background-image: url(css/images/tires/hard.png);" +
+                        "background-size: contain;background-repeat: no-repeat;z-index: 1;"+
+                        "background-color: white;border-bottom-left-radius: 50%;border-top-left-radius: 50%;";
+const white_style = "position: relative;right: 60px;background:white;";
+
 
 // Variable que marca el clima.
 var weather = "";
@@ -101,7 +155,7 @@ function get_info_race() {
     track_name = info_race["track"];
     country = info_race["country"];
     right_turn = info_race["turn_right"];
-    right_left = info_race["turn_left"];
+    left_turn = info_race["turn_left"];
     track_sense = info_race["truck_sense"];
     name_tires_most_deg = info_race["tires_more_deg"];
 
@@ -184,7 +238,7 @@ function two_compounds(compound1,compound2,option) {
                 }
                 console.log("dentro");
             };
-            // Conociendo la vuelta de parada del neumático blando simulamos ahora con el medio.
+            // Conociendo la vuelta de parada del neumático más blando simulamos ahora con el otro compuesto.
             for (let index = lap_stop; index < race_length; index++) {
                 let time_lap = compound2["time"] + compound2["time_lost_lap"];
                 time_compound2 += time_lap;
@@ -242,8 +296,10 @@ function two_compounds(compound1,compound2,option) {
         lap_hard = time_simulation[lap_good][4];
         deg_hard = time_simulation[lap_good][5];
         points = time_simulation[lap_good][6];
+        type_strategy = time_simulation[lap_good][7];
         // Guardamos en info_one_stop_1 la info sobre esta estrategia.
-        let info_one_stop = [lap_soft,deg_soft,lap_medium,deg_medium,lap_hard,deg_hard,points];
+        let info_one_stop = [lap_soft,deg_soft,lap_medium,deg_medium,lap_hard,deg_hard,points,type_strategy];
+        console.log(info_one_stop);
         if (option == 1) {
             info_one_stop_1 = info_one_stop;
         }else if (option == 2) {
@@ -328,9 +384,123 @@ function strategy() {
         strategy_no_pit(hard_3);
     }
 
-    console.log(info_one_stop_1);
-    console.log(info_one_stop_2);
-    console.log(info_one_stop_3);
+    console.log("Blando - Medio "+info_one_stop_1);
+    console.log("Blando - Duro "+info_one_stop_2);
+    console.log("Medio - Duro "+info_one_stop_3);
+}
+
+function show_strategy() {
+    display.innerHTML = "<br>" + "El " + "<b>" + track_name + "</b>" + " situado en " + "<b>" + country +"</b>" + " es un circuito con " + 
+                            "<b>" + right_turn + " curvas a derechas"+ "</b>" + " y " +"<b>" + left_turn + " curvas a izquierda " +"</b>"
+                            + "siendo este de sentido " + track_sense + "."+ "<br>" +
+                            " Las ruedas con mayor degradacion generalmente son los " + "<b>" + name_tires_most_deg +"</b>" + ". <br>" + "<hr>";
+        
+        // Ordenar dependiendo de los puntos.
+        var strategy_options = [];
+        if (info_one_stop_1 != null) {
+            strategy_options.push(info_one_stop_1[0]);
+        }
+        if (info_one_stop_2 != null) {
+            strategy_options.push(info_one_stop_2[0]);
+        }
+        if (info_one_stop_3 != null) {
+            strategy_options.push(info_one_stop_3[0]);
+            best_strategy = info_one_stop_3;
+        }
+        strategy_options.sort(function(a,b){
+            return a - b
+        });
+        console.log(strategy_options);
+        if (info_one_stop_1[0] == strategy_options[0]) {
+            let fastest_strategy = " Soft - Medium";
+            display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
+            one.style.height = "50px";one.innerHTML = "Tire";one.style.display="inline-block";
+            two.style.height = "50px";two.innerHTML = "Soft"; two.style.display="inline-block";
+            three.style.height = "50px";three.innerHTML = "Tire"; three.style.display="inline-block";
+            four.style.height = "50px";four.innerHTML = "Medium";four.style.display="inline-block";
+            five.style.height = "50px";five.innerHTML = "End";five.style.display="inline-block";
+        }else if (info_one_stop_2 [0] == strategy_options[0]) {
+            fastest_strategy = " Soft - Hard";
+            display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
+            one.style = soft_tire_style; one.innerHTML = "Tire";
+            two.style.height = "50px";two.innerHTML = "Soft";
+            three.style.height = "50px";three.innerHTML = "Tire"; 
+            four.style.height = "50px";four.innerHTML = "Hard";
+            five.style.height = "50px";five.innerHTML = "End";
+        }else if (info_one_stop_3 [0] == strategy_options[0]) {
+            fastest_strategy = " Medium - Hard";
+            display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
+            one.style.height = "50px";one.innerHTML = "Tire"; 
+            two.style.height = "50px";two.innerHTML = "Medium"; 
+            three.style.height = "50px";three.innerHTML = "Tire"; 
+            four.style.height = "50px";four.innerHTML = "Hard"; 
+            five.style.height = "50px";five.innerHTML = "End";
+        }
+
+        if (info_one_stop_1[0] == strategy_options[1]) {
+            let fastest_strategy = " Soft - Medium";
+            display_one_stop_2.innerHTML = " 2º FASTEST STRATEGY:" + fastest_strategy;
+            six.style.height = "50px";six.innerHTML = "Tire";
+            seven.style.height = "50px";seven.innerHTML = "Soft";
+            eight.style.height = "50px";eight.innerHTML = "Tire";
+            nine.style.height = "50px";nine.innerHTML = "Medium";
+            teen.style.height = "50px";teen.innerHTML = "End";
+        }else if (info_one_stop_2[0] == strategy_options[1]) {
+            let fastest_strategy = " Soft - Hard";
+            display_one_stop_2.innerHTML = " 2º FASTEST STRATEGY:" + fastest_strategy;
+            six.style.height = "50px";six.innerHTML = "Tire";
+            seven.style.height = "50px";seven.innerHTML = "Soft";
+            eight.style.height = "50px";eight.innerHTML = "Tire";
+            nine.style.height = "50px";nine.innerHTML = "Hard";
+            teen.style.height = "50px";teen.innerHTML = "End";
+        }else if (info_one_stop_3[0] == strategy_options[1]) {
+            let fastest_strategy = " Medium - Hard";
+            display_one_stop_2.innerHTML = " 2º FASTEST STRATEGY:" + fastest_strategy;
+
+            six.style.height = "50px";six.innerHTML = "Tire"; six.style.display = "inline-block";
+            six.style.backgroundImage = "url(css/images/tires/medium.png)"; six.style.backgroundColor = "yellow";
+
+            seven.style.height = "50px";seven.innerHTML = "Medium"; seven.style.display = "inline-block";
+            seven.style.backgroundColor = "yellow";
+
+            eight.style.height = "50px";eight.innerHTML = "Tire"; eight.style.display = "inline-block";
+            eight.style.backgroundImage = "url(css/images/tires/hard.png)"; eight.style.backgroundColor = "white";
+
+            nine.style.height = "50px";nine.innerHTML = "Hard"; nine.style.display = "inline-block";
+            nine.style.backgroundColor = "white";
+
+            ten.style.height = "50px";ten.innerHTML = "End"; ten.style.display = "inline-block";
+        }
+        console.log(info_one_stop_3[0])
+        console.log("Estrategia mas lenta " + strategy_options[2])
+        if (info_one_stop_1[0] == strategy_options[2]) {
+            let fastest_strategy = " Soft - Medium";
+            display_one_stop_3.innerHTML = " LOWEST STRATEGY:" + fastest_strategy;
+            eleven.innerHTML = "Tire"; eleven.style.display = "inline-block";
+            twelve.innerHTML = "Soft"; twelve.style.display = "inline-block";
+            thirteen.innerHTML = "Tire"; thirteen.style.display = "inline-block";
+            fourteen.innerHTML = "Medium"; fourteen.style.display = "inline-block";
+            fifteen.innerHTML = "End"; fifteen.style.display = "inline-block";
+        }else if (info_one_stop_2[0] == strategy_options[2]) {
+            let fastest_strategy = " Soft - Hard";
+            display_one_stop_3.innerHTML = " LOWEST STRATEGY:" + fastest_strategy;
+            eleven.innerHTML = "Tire"; eleven.style.display = "inline-block";
+            twelve.innerHTML = "Soft"; twelve.style.display = "inline-block";
+            thirteen.innerHTML = "Tire"; thirteen.style.display = "inline-block";
+            thirteen.style.backgroundColor = "white"; thirteen.style.backgroundImage = "url(css/images/tires/hard.png)";
+            fourteen.innerHTML = "Hard"; fourteen.style.display = "inline-block";
+            fourteen.style.backgroundColor = "white";
+            fifteen.innerHTML = "End"; fifteen.style.display = "inline-block";
+            console.log("Holaa")
+        }else if (info_one_stop_3[0] == strategy_options[2]) {
+            let fastest_strategy = " Medium - Hard";
+            display_one_stop_3.innerHTML = "LOWEST STRATEGY:" + fastest_strategy;
+            eleven.innerHTML = "Tire"; eleven.style.display = "inline-block";
+            twelve.innerHTML = "Medium"; twelve.style.display = "inline-block";
+            thirteen.innerHTML = "Tires"; thirteen.style.display = "inline-block";
+            fourteen.innerHTML = "Hard"; fourteen.style.display = "inline-block";
+            fifteen.innerHTML = "End"; fifteen.style.display = "inline-block";
+        }
 }
 
 // Esta función se encarga se iniciar el calculo de la simulación.
@@ -348,10 +518,7 @@ function set_calculo(){
     get_info_race();
     if (weather != "" && race_length >= 0) {
         strategy();
-        display.innerHTML = "El " + track_name + " situado en " + country + " es un circuito con " + 
-                            right_turn + " curvas a derechas y " + left_turn + " curvas a izquierda "
-                            + "siendo este de sentido " + track_sense + "."+ "<br>" + " Las ruedas con mayor degradacion generalmente son los " +
-                            name_tires_most_deg + ".";
+        show_strategy();
     }else{
         display.innerHTML = "Marque las opciones para la simulación";
         console.log("Marque las opciones para la simulación");

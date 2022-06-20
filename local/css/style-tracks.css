@@ -113,40 +113,68 @@ button {
 /* Styles of Simulation Option */
 #display{
     background-color: #ffffff;
-    font-family: 'FormulaUno';
+    font-family: 'Arial';
+    font-size: larger;
 }
 
-
+#strategy{
+    width: 450;
+    text-align: center;
+}
 
 .box {
-    display: inline-block;
+    /*display: inline-block;*/
+    display: none;
     height: 50px;
-    background: red;
+    background: rgb(0, 0, 0);
     color: transparent;
   }
-
-  #one {
+#one, #six,#eleven {
     background-image: url(images/tires/soft.png);
     background-size: contain;
     background-repeat: no-repeat;
-    border-top-left-radius: 50%;
+    background-color: red;
     border-bottom-left-radius: 50%;
-  }
-
-  #two {
+    border-top-left-radius: 50%;
     position: relative;
-    right: 25px;
-    background: blue;
+    z-index: 2;
+}
+
+#two,#seven,#twelve {
+    position: relative;
+    right: 30px;
+    background: red;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#three,#eight,#thirteen {
+    position: relative;
+    right: 50px;
     background-image: url(images/tires/medium.png);
     background-size: contain;
     background-repeat: no-repeat;
-  }
-
-  #three {
+    z-index: 1;
+    background-color: yellow;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}
+#four,#nine,#fourteen{
     position: relative;
-    right: 30px;
+    right: 60px;
+    background:yellow;
+}
+#five,#ten,#fifteen{
+    position: relative;
+    right: 65px;
     background-image: url(images/flags/end_race.png);
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 2%;
+}
 
+  #display_one_stop_1,#display_one_stop_2,#display_one_stop_3{
+    font-family: 'FormulaUno';
+    color: #ffffff;
   }
