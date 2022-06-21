@@ -52,24 +52,6 @@ fourteen = document.getElementById("fourteen");
 // Display que muestra la bandera a cuadros.
 fifteen = document.getElementById("fifteen");
 
-// Style Tire Soft
-const soft_tire_style = "background-image: css/images/tires/soft.png;width:50px"+
-                  "background-size: contain; background-repeat: no-repeat;" + "background-color: red;"
-                  "border-bottom-left-radius: 50%;border-top-left-radius: 50%;" +
-                  "position: relative; z-index: 2;";
-const red_style = "position: relative;right: 30px;background: red;background-size: contain;background-repeat: no-repeat;";
-
-const medium_tire_style = "position: relative;right: 50px;background-image: url(css/images/tires/medium.png);" +
-                          "background-size: contain;background-repeat: no-repeat;z-index: 1;"+
-                          "background-color: yellow;border-bottom-left-radius: 50%;border-top-left-radius: 50%;";
-const yellow_style = "position: relative;right: 60px;background:yellow;";
-
-const hard_tire_style = "position: relative;right: 50px;background-image: url(css/images/tires/hard.png);" +
-                        "background-size: contain;background-repeat: no-repeat;z-index: 1;"+
-                        "background-color: white;border-bottom-left-radius: 50%;border-top-left-radius: 50%;";
-const white_style = "position: relative;right: 60px;background:white;";
-
-
 // Variable que marca el clima.
 var weather = "";
 
@@ -414,27 +396,39 @@ function show_strategy() {
         if (info_one_stop_1[0] == strategy_options[0]) {
             let fastest_strategy = " Soft - Medium";
             display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
-            one.style.height = "50px";one.innerHTML = "Tire";one.style.display="inline-block";
-            two.style.height = "50px";two.innerHTML = "Soft"; two.style.display="inline-block";
-            three.style.height = "50px";three.innerHTML = "Tire"; three.style.display="inline-block";
-            four.style.height = "50px";four.innerHTML = "Medium";four.style.display="inline-block";
-            five.style.height = "50px";five.innerHTML = "End";five.style.display="inline-block";
+            //Soft
+            one.style.display="inline-block";
+            two.style.display="inline-block";
+            //Medium
+            three.style.display="inline-block";
+            four.style.display="inline-block";
+            // End Race
+            five.style.display="inline-block";
         }else if (info_one_stop_2 [0] == strategy_options[0]) {
             fastest_strategy = " Soft - Hard";
             display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
-            one.style = soft_tire_style; one.innerHTML = "Tire";
-            two.style.height = "50px";two.innerHTML = "Soft";
-            three.style.height = "50px";three.innerHTML = "Tire"; 
-            four.style.height = "50px";four.innerHTML = "Hard";
-            five.style.height = "50px";five.innerHTML = "End";
+            // Soft
+            one.style.display="inline-block";
+            two.style.display="inline-block";
+            // Hard
+            three.style.display = "inline-block"; three.style.backgroundColor = "white";
+            three.style.backgroundImage = "url(css/images/tires/hard.png))"
+            four.style.display = "inline-block"; four.style.backgroundColor = "white";
+            // End Race
+            five.style.display = "inline-block";
         }else if (info_one_stop_3 [0] == strategy_options[0]) {
             fastest_strategy = " Medium - Hard";
             display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
-            one.style.height = "50px";one.innerHTML = "Tire"; 
-            two.style.height = "50px";two.innerHTML = "Medium"; 
-            three.style.height = "50px";three.innerHTML = "Tire"; 
-            four.style.height = "50px";four.innerHTML = "Hard"; 
-            five.style.height = "50px";five.innerHTML = "End";
+            // Medium
+            one.style.display="inline-block"; one.style.backgroundColor = "yellow";
+            one.style.backgroundImage = "url(css/images/tires/medium.png)";
+            two.style.display="inline-block"; two.style.backgroundColor = "yellow";
+            // Hard
+            three.style.display = "inline-block"; three.style.backgroundColor = "white";
+            three.style.backgroundImage = "url(css/images/tires/hard.png)"
+            four.style.display = "inline-block"; four.style.backgroundColor = "white";
+            // End Race
+            five.style.display = "inline-block";
         }
 
         if (info_one_stop_1[0] == strategy_options[1]) {
@@ -471,35 +465,44 @@ function show_strategy() {
 
             ten.style.height = "50px";ten.innerHTML = "End"; ten.style.display = "inline-block";
         }
-        console.log(info_one_stop_3[0])
-        console.log("Estrategia mas lenta " + strategy_options[2])
+
         if (info_one_stop_1[0] == strategy_options[2]) {
             let fastest_strategy = " Soft - Medium";
             display_one_stop_3.innerHTML = " LOWEST STRATEGY:" + fastest_strategy;
-            eleven.innerHTML = "Tire"; eleven.style.display = "inline-block";
-            twelve.innerHTML = "Soft"; twelve.style.display = "inline-block";
-            thirteen.innerHTML = "Tire"; thirteen.style.display = "inline-block";
-            fourteen.innerHTML = "Medium"; fourteen.style.display = "inline-block";
-            fifteen.innerHTML = "End"; fifteen.style.display = "inline-block";
+            // Soft
+            eleven.style.display = "inline-block";
+            twelve.style.display = "inline-block";
+            //Medium
+            thirteen.style.display = "inline-block";
+            fourteen.style.display = "inline-block";
+            // End Flag
+            fifteen.style.display = "inline-block";
         }else if (info_one_stop_2[0] == strategy_options[2]) {
             let fastest_strategy = " Soft - Hard";
             display_one_stop_3.innerHTML = " LOWEST STRATEGY:" + fastest_strategy;
-            eleven.innerHTML = "Tire"; eleven.style.display = "inline-block";
-            twelve.innerHTML = "Soft"; twelve.style.display = "inline-block";
-            thirteen.innerHTML = "Tire"; thirteen.style.display = "inline-block";
+            //Soft
+            eleven.style.display = "inline-block";
+            twelve.style.display = "inline-block";
+            // Hard
+            thirteen.style.display = "inline-block";
             thirteen.style.backgroundColor = "white"; thirteen.style.backgroundImage = "url(css/images/tires/hard.png)";
             fourteen.innerHTML = "Hard"; fourteen.style.display = "inline-block";
             fourteen.style.backgroundColor = "white";
+            // End Flag
             fifteen.innerHTML = "End"; fifteen.style.display = "inline-block";
-            console.log("Holaa")
         }else if (info_one_stop_3[0] == strategy_options[2]) {
             let fastest_strategy = " Medium - Hard";
+            // Medium
             display_one_stop_3.innerHTML = "LOWEST STRATEGY:" + fastest_strategy;
-            eleven.innerHTML = "Tire"; eleven.style.display = "inline-block";
-            twelve.innerHTML = "Medium"; twelve.style.display = "inline-block";
-            thirteen.innerHTML = "Tires"; thirteen.style.display = "inline-block";
-            fourteen.innerHTML = "Hard"; fourteen.style.display = "inline-block";
-            fifteen.innerHTML = "End"; fifteen.style.display = "inline-block";
+            eleven.style.display = "inline-block"; eleven.style.backgroundColor = "yellow";
+            eleven.style.backgroundImage = "url(css/images/tires/medium.png)";
+            twelve.style.display = "inline-block"; twelve.style.backgroundColor = "yellow";
+            // Hard
+            thirteen.style.display = "inline-block"; thirteen.style.backgroundImage = "url(css/images/tires/hard.png)";
+            thirteen.style.backgroundColor = "white";
+            fourteen.style.display = "inline-block"; fourteen.backgroundColor = "white";
+            // End Flag
+            fifteen.style.display = "inline-block";
         }
 }
 
