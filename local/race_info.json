@@ -300,6 +300,7 @@
                 "turn_left":"6",
                 "truck_sense":"horario",
                 "tires_more_deg":"neumáticos traseros",
+                "length": "4361 m",
                 "laps":70,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,

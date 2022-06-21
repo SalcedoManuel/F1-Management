@@ -374,8 +374,8 @@ function strategy() {
 function show_strategy() {
     display.innerHTML = "<br>" + "El " + "<b>" + track_name + "</b>" + " situado en " + "<b>" + country +"</b>" + " es un circuito con " + 
                             "<b>" + right_turn + " curvas a derechas"+ "</b>" + " y " +"<b>" + left_turn + " curvas a izquierda " +"</b>"
-                            + "siendo este de sentido " + track_sense + "."+ "<br>" +
-                            " Las ruedas con mayor degradacion generalmente son los " + "<b>" + name_tires_most_deg +"</b>" + ". <br>" + "<hr>";
+                            + "siendo este de sentido " + track_sense + "la longitud del circuito es de " + length_grand_prix + "."+ "<br><br>" + 
+                            " Las ruedas con mayor degradacion generalmente son los " + "<b>" + name_tires_most_deg +"</b>" + ". <br><br>" + "<hr>";
         
         // Ordenar dependiendo de los puntos.
         var strategy_options = [];
