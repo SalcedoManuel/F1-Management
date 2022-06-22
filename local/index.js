@@ -412,6 +412,23 @@ function activate(uno,dos,tres,cuatro,cinco,seis,siete) {
     seis.style.display="inline-block";
     siete.style.display="inline-block";
 }
+function change_soft(one,two) {
+    one.style.backgroundColor = two.style.backgroundColor = "red";
+    one.style.backgroundImage = "url(css/images/tires/soft.png);";
+}
+function change_medium(one,two) {
+    one.style.backgroundColor = two.style.backgroundColor ="yellow";
+    one.style.backgroundImage = "url(css/images/tires/medium.png);";
+}
+function change_hard(one,two) {
+    one.style.backgroundColor = two.style.backgroundColor = "white";
+    one.style.backgroundImage = "url(css/images/tires/hard.png);";
+}
+function same_tire(compound1,one,two) {
+    let color_tire = compound1.style.backgroundColor;
+    one.style.backgroundColor = two.style.backgroundColor = color_tire;
+    one.style.backgroundImage = "";
+}
 function show_strategy() {
     display.innerHTML = "<br>" + "El " + "<b>" + track_name + "</b>" + " situado en " + "<b>" + country +"</b>" + " es un circuito con " + 
                             "<b>" + right_turn + " curvas a derechas"+ "</b>" + " y " +"<b>" + left_turn + " curvas a izquierda " +"</b>"
@@ -430,6 +447,7 @@ function show_strategy() {
                                             "En la parada se recomienda poner el <b>neumático medio.</b><br><br>"
                                             + "La puntuación de esta estrategia es de " + info_one_stop_1[0] + "<br>(A menor puntuación más rápida es esta estrategia)."
             activate(one,two,three,four,five,six,end_flag1);
+            
             // Same Tire
             five.style.backgroundImage = "";five.style.backgroundColor="yellow";
             five.style="border-bottom-left-radius: 0;border-top-left-radius: 0;"
