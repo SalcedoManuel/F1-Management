@@ -189,7 +189,10 @@ button {
     border-bottom-right-radius: 50%;
     border-top-right-radius: 2%;
 }
-  #display_one_stop_1,#display_one_stop_2,#display_one_stop_3{
-    font-family: 'FormulaUno';
-    color: #ffffff;
-  }
+ #display_one_stop_1,#display_one_stop_2,#display_one_stop_3{
+   font-family: 'FormulaUno';
+   color: #ffffff;
+}
+#display_explication1{
+    background: #ffffff;
+}

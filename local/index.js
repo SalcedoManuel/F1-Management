@@ -16,8 +16,11 @@ display = document.getElementById("display")
 // Variable que muestra la información escrita sobre la primera opción
 // ESTRATEGIA A UNA PARADA BLANDO - MEDIO.
 display_one_stop_1 = document.getElementById("display_one_stop_1");
+display_explication1 = document.getElementById("display_explication1");
 display_one_stop_2 = document.getElementById("display_one_stop_2");
+display_explication2 = document.getElementById("display_explication2");
 display_one_stop_3 = document.getElementById("display_one_stop_3");
+display_explication3 = document.getElementById("display_explication3");
 
 // Display que muestra el neumático de inicio.
 one = document.getElementById("one");
@@ -412,7 +415,7 @@ function activate(uno,dos,tres,cuatro,cinco,seis,siete) {
 function show_strategy() {
     display.innerHTML = "<br>" + "El " + "<b>" + track_name + "</b>" + " situado en " + "<b>" + country +"</b>" + " es un circuito con " + 
                             "<b>" + right_turn + " curvas a derechas"+ "</b>" + " y " +"<b>" + left_turn + " curvas a izquierda " +"</b>"
-                            + "siendo este de sentido " + track_sense + "la longitud del circuito es de " + length_grand_prix + "."+ "<br><br>" + 
+                            + "siendo este de sentido " + track_sense + ". Este trazado posee una longitud de <b>" + length_grand_prix + "</b>."+ "<br><br>" + 
                             " Las ruedas con mayor degradacion generalmente son los " + "<b>" + name_tires_most_deg +"</b>" + ". <br><br>" + "<hr>";
         
         // Ordenar dependiendo de los puntos.
@@ -422,6 +425,10 @@ function show_strategy() {
         if (info_one_stop_1[0] == strategy_options[0]) {
             let fastest_strategy = " Soft - Medium";
             display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
+            display_explication1.innerHTML = "Usar el neumático blando hasta la vuelta <b>"+
+                                            info_one_stop_1[1] + "</b> acabando con una degradación del "+info_one_stop_1[2]+"%.<br><br>"+
+                                            "En la parada se recomienda poner el <b>neumático medio.</b><br><br>"
+                                            + "La puntuación de esta estrategia es de " + info_one_stop_1[0] + "<br>(A menor puntuación más rápida es esta estrategia)."
             activate(one,two,three,four,five,six,end_flag1);
             // Same Tire
             five.style.backgroundImage = "";five.style.backgroundColor="yellow";
