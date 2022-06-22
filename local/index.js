@@ -412,22 +412,55 @@ function activate(uno,dos,tres,cuatro,cinco,seis,siete) {
     seis.style.display="inline-block";
     siete.style.display="inline-block";
 }
-function change_soft(one,two) {
-    one.style.backgroundColor = two.style.backgroundColor = "red";
-    one.style.backgroundImage = "url(css/images/tires/soft.png);";
+function change_soft(uno,dos) {
+    uno.style.backgroundImage = "url(css/images/tires/soft.png);";
+    uno.style.backgroundColor = dos.style.backgroundColor = "red";
+
 }
-function change_medium(one,two) {
-    one.style.backgroundColor = two.style.backgroundColor ="yellow";
-    one.style.backgroundImage = "url(css/images/tires/medium.png);";
+function change_medium(uno,dos) {
+    uno.style.backgroundImage = "url(css/images/tires/medium.png);";
+    uno.style.backgroundColor = dos.style.backgroundColor ="yellow";
 }
-function change_hard(one,two) {
-    one.style.backgroundColor = two.style.backgroundColor = "white";
-    one.style.backgroundImage = "url(css/images/tires/hard.png);";
+function change_hard(uno,dos) {
+    uno.style.backgroundImage = "url(css/images/tires/hard.png);";
+    uno.style.backgroundColor = dos.style.backgroundColor = "white";
 }
-function same_tire(compound1,one,two) {
+function same_tire(compound1,uno,dos) {
     let color_tire = compound1.style.backgroundColor;
-    one.style.backgroundColor = two.style.backgroundColor = color_tire;
-    one.style.backgroundImage = "";
+    uno.style.backgroundColor = dos.style.backgroundColor = color_tire;
+    uno.style="border-bottom-left-radius: 0;border-top-left-radius: 0;"
+    uno.style.backgroundImage = "";
+}
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2")  + "e-2");
+}
+
+function create_display_explication(display,info,tire1,tire2,tire3) {
+    display.innerHTML = "Usar el neumático <b>";
+    if (tire1 == "blando") {
+        display.innerHTML += tire1 +"</b> hasta la vuelta <b>"+ info[1]+ "</b> acabando con una degradación del <b>"+info[2]+"%.<br><br>"
+    }else if (tire1 == "medio") {
+        display.innerHTML += tire1 +"</b> hasta la vuelta <b>"+ info[3]+ "</b> acabando con una degradación del <b>"+info[4]+"%.<br><br>"
+    }else if (tire1 == "duro") {
+        display.innerHTML += tire1 +"</b> hasta la vuelta <b>"+ info[5]+ "</b> acabando con una degradación del <b>"+info[6]+"%.<br><br>"
+    }
+    display.innerHTML += "En la parada, siguiendo esta estrategia, se pondría el ";
+    if (tire2 == "blando") {
+        display.innerHTML +="<b> neumático "+ tire2 +".</b> Este neumático siguiendo la previsión acabaría con una degradación del <b>" +info[2] +"% </b> y con el que se rodarían <b>"+info[1]+" vueltas </b>. <br><br>";
+    }else if (tire2 == "medio") {
+        display.innerHTML += "<b> neumático "+ tire2 +".</b> Este neumático siguiendo la previsión acabaría con una degradación del <b>" +info[4] +"% </b> y con el que se rodarían <b>"+info[3]+" vueltas </b>. <br><br>";
+    }else if (tire2 == "duro") {
+        display.innerHTML += "<b> neumático "+ tire2 +".</b> Este neumático siguiendo la previsión acabaría con una degradación del <b>" +info[6] +"% </b> y con el que se rodarían <b>"+info[5]+" vueltas </b>. <br><br>";
+    }
+
+    if (tire3 == "blando") {
+        display.innerHTML += "La segunda parada de la carrera se recomienda realizar en la vuelta <b></b> y poniendo el neumático blando.<br><br>";
+    }else if (tire3 == "medio") {
+        display.innerHTML += "La segunda parada de la carrera se recomienda realizar en la vuelta <b></b> y poniendo el neumático medio.<br><br>";
+    }else if (tire3 == "duro") {
+        display.innerHTML += "La segunda parada de la carrera se recomienda realizar en la vuelta <b></b> y poniendo el neumático duro.<br><br>";
+    }
+    display.innerHTML += "La puntuación de esta estrategia es de <b>" + roundToTwo(info[0]) + " puntos.</b><br>"+"(A menor puntuación más rápida es esta estrategia).";
 }
 function show_strategy() {
     display.innerHTML = "<br>" + "El " + "<b>" + track_name + "</b>" + " situado en " + "<b>" + country +"</b>" + " es un circuito con " + 
@@ -442,110 +475,172 @@ function show_strategy() {
         if (info_one_stop_1[0] == strategy_options[0]) {
             let fastest_strategy = " Soft - Medium";
             display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
-            display_explication1.innerHTML = "Usar el neumático blando hasta la vuelta <b>"+
-                                            info_one_stop_1[1] + "</b> acabando con una degradación del "+info_one_stop_1[2]+"%.<br><br>"+
-                                            "En la parada se recomienda poner el <b>neumático medio.</b><br><br>"
-                                            + "La puntuación de esta estrategia es de " + info_one_stop_1[0] + "<br>(A menor puntuación más rápida es esta estrategia)."
+            create_display_explication(display_explication1,info_one_stop_1,"blando","medio",null);
             activate(one,two,three,four,five,six,end_flag1);
-            
-            // Same Tire
-            five.style.backgroundImage = "";five.style.backgroundColor="yellow";
-            five.style="border-bottom-left-radius: 0;border-top-left-radius: 0;"
-            six.style.backgroundImage = "";six.style.backgroundColor = "yellow";
-           
+            if (info_one_stop_1[1]<info_one_stop_1[3]) {
+                change_soft(one,two);
+                one.style.backgroundImage = "url(css/images/tires/soft.png)";
+                change_medium(three,four);
+                three.style.backgroundImage = "url(css/images/tires/medium.png)";
+                same_tire(four,five,six);       
+            }else{
+                change_soft(one,two);
+                one.style.backgroundImage = "url(css/images/tires/soft.png)";
+                same_tire(two,three,four);
+                change_medium(five,six);
+                five.style.backgroundImage = "url(css/images/tires/medium.png)";
+            }
+    
         }else if (info_one_stop_2 [0] == strategy_options[0]) {
             fastest_strategy = " Soft - Hard";
             display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
+            create_display_explication(display_explication1,info_one_stop_2,"blando","duro",null);
             activate(one,two,three,four,five,six,end_flag1);
-            // Hard
-            three.style.backgroundColor = "white";
-            three.style.backgroundImage = "url(css/images/tires/hard.png))"
-            four.style.backgroundColor = "white";
-            // Same Tire
-            five.style.backgroundImage = "";five.style.backgroundColor="white";
-            six.style.backgroundColor = "white";
+            if (info_one_stop_2[1]<info_one_stop_2[5]) {
+                change_soft(one,two);
+                one.style.backgroundImage = "url(css/images/tires/soft.png)";
+                change_hard(three,four);
+                three.style.backgroundImage = "url(css/images/tires/hard.png)";
+                same_tire(four,five,six);
+
+            }else{
+                change_soft(one,two);
+                same_tire(two,three,four);
+                change_hard(five,six);
+                five.style.backgroundImage = "url(css/images/tires/hard.png)";
+            }
         }else if (info_one_stop_3 [0] == strategy_options[0]) {
             fastest_strategy = " Medium - Hard";
             display_one_stop_1.innerHTML = "FASTEST STRATEGY:" + fastest_strategy;
+            create_display_explication(display_explication1,info_one_stop_3,"medio","duro",null);
             activate(one,two,three,four,five,six,end_flag1);
-            // Medium
-            one.style.backgroundColor = "yellow";
-            one.style.backgroundImage = "url(css/images/tires/medium.png)";
-            two.style.backgroundColor = "yellow";
-            // Hard
-            three.style.backgroundColor = "white";
-            three.style.backgroundImage = "url(css/images/tires/hard.png)"
-            four.style.backgroundColor = "white";
-            // Same Tire
-            five.style.backgroundImage = "";five.style.backgroundColor="white";
-            six.style.backgroundColor = "white";
+            if (info_one_stop_3[3]<info_one_stop_3[5]) {
+                change_medium(one,two);
+                one.style.backgroundImage = "url(css/images/tires/medium.png)";
+                change_hard(three,four);
+                three.style.backgroundImage = "url(css/images/tires/hard.png)";
+                same_tire(four,five,six);     
+            }else{
+                change_medium(one,two);
+                one.style.backgroundImage = "url(css/images/tires/medium.png)";
+                same_tire(two,three,four);
+                change_hard(five,six);
+                five.style.backgroundImage = "url(css/images/tires/hard.png)";
+            }
         }
 
         if (info_one_stop_1[0] == strategy_options[1]) {
             let fastest_strategy = " Soft - Medium";
             display_one_stop_2.innerHTML = " 2º FASTEST STRATEGY:" + fastest_strategy;
+            create_display_explication(display_explication2,info_one_stop_1,"blando","medio",null);
             activate(seven,eight,nine,ten,eleven,twelve,end_flag2);
-            // Same Tire
-            eleven.style.backgroundImage = "";eleven.style.backgroundColor="yellow";
-            eleven.style="border-bottom-left-radius: 0;border-top-left-radius: 0;";
-            twelve.style.backgroundColor = "yellow";
+            if (info_one_stop_1[1]<info_one_stop_1[3]) {
+                change_soft(seven,eight);
+                seven.style.backgroundImage = "url(css/images/tires/soft.png)";
+                change_medium(nine,ten);
+                nine.style.backgroundImage = "url(css/images/tires/medium.png)";
+                same_tire(ten,eleven,twelve);   
+            }else{
+                change_soft(seven,eight);
+                seven.style.backgroundImage = "url(css/images/tires/soft.png)";
+                same_tire(eight,nine,ten);
+                change_medium(eleven,twelve);
+                eleven.style.backgroundImage = "url(css/images/tires/medium.png)";
+            }
+
         }else if (info_one_stop_2[0] == strategy_options[1]) {
             let fastest_strategy = " Soft - Hard";
             display_one_stop_2.innerHTML = " 2º FASTEST STRATEGY:" + fastest_strategy;
+            create_display_explication(display_explication2,info_one_stop_2,"blando","duro",null);
             activate(seven,eight,nine,ten,eleven,twelve,end_flag2);
-            nine.style.backgroundImage = "url(css/images/tires/hard.png)";nine.style.backgroundColor="white";
-            // Same Tire
-            eleven.style.backgroundImage = "";eleven.style.backgroundColor="white";
-            eleven.style="border-bottom-left-radius: 0;border-top-left-radius: 0;";
-            twelve.style.backgroundColor = "white";
+            if (info_one_stop_2[1]<info_one_stop_2[5]) {
+                change_soft(seven,eight);
+                seven.style.backgroundImage = "url(css/images/tires/soft.png)";
+                change_hard(nine,ten);
+                nine.style.backgroundImage = "url(css/images/tires/hard.png)";
+                same_tire(ten,eleven,twelve);   
+            }else{
+                change_soft(seven,eight);
+                seven.style.backgroundImage = "url(css/images/tires/soft.png)";
+                same_tire(eight,nine,ten);
+                change_hard(eleven,twelve);
+                eleven.style.backgroundImage = "url(css/images/tires/hard.png)";
+            }
         }else if (info_one_stop_3[0] == strategy_options[1]) {
             let fastest_strategy = " Medium - Hard";
             display_one_stop_2.innerHTML = " 2º FASTEST STRATEGY:" + fastest_strategy;
+            create_display_explication(display_explication2,info_one_stop_3,"medio","duro",null);
             activate(seven,eight,nine,ten,eleven,twelve,end_flag2);
-            // Medium
-            seven.style.backgroundImage = "url(css/images/tires/medium.png)";
-            seven.style.backgroundColor = "yellow";
-
-            eight.style.backgroundColor = "yellow";
-            // Hard
-            nine.style.backgroundImage = "url(css/images/tires/hard.png)";
-            nine.style.backgroundColor = "white";
-            ten.style.backgroundColor = "white";
-            // Same Tire
-            eleven.style.backgroundColor = "white"; eleven.style.backgroundImage = "";
-            eleven.style="border-bottom-left-radius: 0;border-top-left-radius: 0;";
-            twelve.style.backgroundColor = "white";
+            if (info_one_stop_3[3]<info_one_stop_3[5]) {
+                change_medium(seven,eight);
+                seven.style.backgroundImage = "url(css/images/tires/medium.png)";
+                change_hard(nine,ten);
+                nine.style.backgroundImage = "url(css/images/tires/hard.png)";
+                same_tire(ten,eleven,twelve);   
+            }else{
+                change_medium(seven,eight);
+                seven.style.backgroundImage = "url(css/images/tires/medium.png)";
+                same_tire(eight,nine,ten);
+                change_hard(eleven,twelve);
+                eleven.style.backgroundImage = "url(css/images/tires/hard.png)";
+            }
         }
 
         if (info_one_stop_1[0] == strategy_options[2]) {
             let fastest_strategy = " Soft - Medium";
             display_one_stop_3.innerHTML = " LOWEST STRATEGY:" + fastest_strategy;
+            create_display_explication(display_explication3,info_one_stop_1,"blando","medio",null);
             activate(thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,end_flag3);
+            if (info_one_stop_1[1]<info_one_stop_1[3]) {
+                change_soft(thirteen,fourteen);
+                thirteen.style.backgroundImage = "url(css/images/tires/soft.png)";
+                change_medium(fifteen,sixteen);
+                fifteen.style.backgroundImage = "url(css/images/tires/medium.png)";
+                same_tire(sixteen,seventeen,eighteen);
+            }else{
+                change_soft(thirteen,fourteen);
+                thirteen.style.backgroundImage = "url(css/images/tires/soft.png)";
+                same_tire(fourteen,fifteen,sixteen);
+                change_medium(sixteen,seventeen);
+                sixteen.style.backgroundImage = "url(css/images/tires/medium.png)";
+            }
+            
         }else if (info_one_stop_2[0] == strategy_options[2]) {
             let fastest_strategy = " Soft - Hard";
             display_one_stop_3.innerHTML = " LOWEST STRATEGY:" + fastest_strategy;
+            create_display_explication(display_explication3,info_one_stop_2,"blando","duro",null);
             activate(thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,end_flag3);
-            fifteen.style.backgroundColor = "white"; fifteen.style.backgroundImage = "url(css/images/tires/hard.png)";
-            sixteen.style.backgroundColor = "white";
-            // Same Tire
-            seventeen.style="border-bottom-left-radius: 0;border-top-left-radius: 0;";
-            seventeen.style.backgroundColor = "white"; seventeen.style.backgroundImage="";
-            eighteen.style.backgroundColor = "white";
+            if (info_one_stop_2[1]<info_one_stop_2[5]) {
+                change_soft(thirteen,fourteen);
+                thirteen.style.backgroundImage = "url(css/images/tires/soft.png)";
+                change_hard(fifteen,sixteen);
+                fifteen.style.backgroundImage = "url(css/images/tires/hard.png)";
+                same_tire(sixteen,seventeen,eighteen);
+            }else{
+                change_soft(thirteen,fourteen);
+                thirteen.style.backgroundImage = "url(css/images/tires/soft.png)";
+                same_tire(fourteen,fifteen,sixteen);
+                change_hard(seventeen,eighteen);
+                seventeen.style.backgroundImage = "url(css/images/tires/hard.png)";
+            }
         }else if (info_one_stop_3[0] == strategy_options[2]) {
             let fastest_strategy = " Medium - Hard";
-            // Medium
+            create_display_explication(display_explication3,info_one_stop_3,"medio","duro",null);
             display_one_stop_3.innerHTML = "LOWEST STRATEGY:" + fastest_strategy;
             activate(thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,end_flag3);
-            thirteen.style.backgroundColor = "yellow";
-            thirteen.style.backgroundImage = "url(css/images/tires/medium.png)";
-            fourteen.style.backgroundColor = "yellow";
-            // Hard
-            fifteen.style.backgroundImage = "url(css/images/tires/hard.png)";
-            fifteen.style.backgroundColor = "white";
-            sixteen.backgroundColor = "white";
-            // Same Tire
-            seventeen.style.backgroundImage = ""; seventeen.style.backgroundColor="white";
-            eighteen.style.backgroundColor = "white";
+            if (info_one_stop_3[3]<info_one_stop_3[5]) {
+                change_medium(thirteen,fourteen);
+                thirteen.style.backgroundImage = "url(css/images/tires/medium.png)";
+                change_hard(fifteen,sixteen);
+                fifteen.style.backgroundImage = "url(css/images/tires/hard.png)";
+                same_tire(sixteen,seventeen,eighteen);
+            }else{
+                change_medium(thirteen,fourteen);
+                thirteen.style.backgroundImage = "url(css/images/tires/medium.png)";
+                same_tire(fourteen,fifteen,sixteen)
+                change_hard(seventeen,eighteen);
+                seventeen.style.backgroundImage = "url(css/images/tires/hard.png)";
+            }
         }
 }
 

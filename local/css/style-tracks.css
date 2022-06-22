@@ -120,6 +120,7 @@ button {
 #strategy{
     width: 450;
     text-align: center;
+    margin-left: 5%;
 }
 
 .box {
@@ -193,6 +194,10 @@ button {
    font-family: 'FormulaUno';
    color: #ffffff;
 }
-#display_explication1{
+#display_explication1,#display_explication2,#display_explication3{
     background: #ffffff;
+    font-family:'Times New Roman', Times, serif;
+    font-size: x-large;
+    margin-left: 30%;
+    margin-right: 30%;
 }
