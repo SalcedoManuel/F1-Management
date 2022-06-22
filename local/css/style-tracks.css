@@ -129,7 +129,8 @@ button {
     background: rgb(0, 0, 0);
     color: transparent;
   }
-#one, #six,#eleven {
+
+#one, #seven,#thirteen {
     background-image: url(images/tires/soft.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -140,7 +141,7 @@ button {
     z-index: 2;
 }
 
-#two,#seven,#twelve {
+#two,#eight,#fourteen {
     position: relative;
     right: 30px;
     background: red;
@@ -148,9 +149,9 @@ button {
     background-repeat: no-repeat;
 }
 
-#three,#eight,#thirteen {
+#three,#nine,#fifteen {
     position: relative;
-    right: 50px;
+    right: 60px;
     background-image: url(images/tires/medium.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -159,21 +160,35 @@ button {
     border-bottom-left-radius: 50%;
     border-top-left-radius: 50%;
 }
-#four,#nine,#fourteen{
+#four,#ten,#sixteen{
     position: relative;
-    right: 60px;
+    right: 70px;
     background:yellow;
 }
-#five,#ten,#fifteen{
+#five,#eleven,#seventeen{
     position: relative;
-    right: 65px;
+    right: 90px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    background-color: yellow;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}
+#six,#twelve,#eighteen{
+    position: relative;
+    right: 95px;
+    background:yellow;
+}
+#end_flag1,#end_flag2,#end_flag3{
+    position: relative;
+    right: 100px;
     background-image: url(images/flags/end_race.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-bottom-right-radius: 50%;
     border-top-right-radius: 2%;
 }
-
   #display_one_stop_1,#display_one_stop_2,#display_one_stop_3{
     font-family: 'FormulaUno';
     color: #ffffff;
