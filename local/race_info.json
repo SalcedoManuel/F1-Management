@@ -2,32 +2,40 @@
     {
         "Bahrein":[
             {
-                "track":"Bahrein",
+                "track":"Circuito Internacional de Baréin",
+                "country":"Barein",
+                "turn_right": "9",
+                "turn_left":"6",
+                "truck_sense":"horario",
+                "tires_more_deg":"neumáticos delanteros izquierdos",
+                "length": "5412 m",
                 "laps":51,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
+                "time_earn_fuel":0.100,
+                "max_degradation":59,
                 "soft":[
                     {
                         "time":0.000,
-                        "degadation":5,
-                        "time_lost_lap":0.100,
-                        "lifespan":13
+                        "degadation":8,
+                        "time_lost_lap":0.4515,
+                        "lifespan":19
                     }
                 ],
                 "medium":[
                     {
-                        "time":0.000,
-                        "degadation":5,
-                        "time_lost_lap":0.100,
-                        "lifespan":29
+                        "time":1.187,
+                        "degadation":5.4,
+                        "time_lost_lap":0.1416,
+                        "lifespan":28
                     }
                 ],
                 "hard":[
                     {
-                        "time":0.000,
-                        "degadation":5,
+                        "time":0.100,
+                        "degadation":1.7,
                         "time_lost_lap":0.100,
-                        "lifespan":13
+                        "lifespan":35
                     }
                 ]
             }
@@ -98,32 +106,56 @@
         ],
         "Imola":[
             {
-                "track":"Imola",
-                "laps":58,
+                "track":"Autodromo Enzo e Dino Ferrari",
+                "country":"Italia",
+                "turn_right": "9",
+                "turn_left":"10",
+                "truck_sense":"anti-horario",
+                "tires_more_deg":"neumáticos delanteros derechos",
+                "length": "4909 m",
+                "laps":63,
                 "time_lost_pit":16.4,
                 "time_lost_pit_sc":8.2,
+                "time_earn_fuel":0.090,
+                "max_degradation":59,
                 "soft":[
                     {
                         "time":0.000,
-                        "degadation":5,
-                        "time_lost_lap":0.100,
-                        "lifespan":13
+                        "degadation":3,
+                        "time_lost_lap":0.045,
+                        "lifespan":24
                     }
                 ],
                 "medium":[
                     {
-                        "time":0.000,
-                        "degadation":5,
-                        "time_lost_lap":0.100,
-                        "lifespan":29
+                        "time":0.986,
+                        "degadation":2.5,
+                        "time_lost_lap":0.044,
+                        "lifespan":32
                     }
                 ],
                 "hard":[
                     {
-                        "time":0.000,
-                        "degadation":5,
+                        "time":1.479,
+                        "degadation":2,
+                        "time_lost_lap":0.044,
+                        "lifespan":40
+                    }
+                ],
+                "inter":[
+                    {
+                        "time":8.400,
+                        "lifespan":20,
                         "time_lost_lap":0.100,
-                        "lifespan":13
+                        "degradation":2
+                    }
+                ],
+                "wet":[
+                    {
+                        "time":10.743,
+                        "lifespan":40,
+                        "time_lost_lap":0.050,
+                        "degradation":1.5
                     }
                 ]
             }
@@ -445,6 +477,67 @@
                         "degadation":5,
                         "time_lost_lap":0.100,
                         "lifespan":13
+                    }
+                ]
+            }
+        ],
+        "Portugal":[
+            {
+                "track":"Autodromo Internacional do Algarve",
+                "country":"Portugal",
+                "turn_right": "9",
+                "turn_left":"6",
+                "truck_sense":"horario",
+                "tires_more_deg":"neumáticos delanteros izquierdos",
+                "length": "4653 m",
+                "laps":66,
+                "time_lost_pit":16.4,
+                "time_lost_pit_sc":8.2,
+                "time_earn_fuel":0.0535,
+                "max_degradation":60,
+                "soft":[
+                    {
+                        "time":0.000,
+                        "degradation":4.7,
+                        "time_lost_lap":0.1103,
+                        "lifespan":12,
+                        "info": ""
+                    }
+                ],
+                "medium":[
+                    {
+                        "time":0.537,
+                        "degradation":3.44,
+                        "time_lost_lap":0.032,
+                        "lifespan":16,
+                        "info": ""
+                    }
+                ],
+                "hard":[
+                    {
+                        "time":1.074,
+                        "degradation":2.7,
+                        "time_lost_lap":0.0293,
+                        "lifespan":20,
+                        "info": ""
+                    }
+                ],
+                "inter":[
+                    {
+                        "time":8.251,
+                        "lifespan":41,
+                        "time_lost_lap":0.01825,
+                        "degradation":0.7,
+                        "info": ""
+                    }
+                ],
+                "wet":[
+                    {
+                        "time":11.091,
+                        "lifespan":41,
+                        "time_lost_lap":0.01825,
+                        "degradation":0.7,
+                        "info": ""
                     }
                 ]
             }
