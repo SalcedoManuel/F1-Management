@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Permitir sólo scripts y ficheros de la máquina local -->
+    <!-- Con esto se elimina el aviso de seguridad: Insecure Content-Security-Policy -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self';" />-->
+
+    <!-- Hoja de estilo de la interfaz -->
+    <link rel="stylesheet" href="css/style-tracks.css">
+
+    <!-- Añadimos el icono-->
+    <link rel="icon" href="css/images/logo/logo.ico">
+
+    <!-- Cargar el proceso asociado a esta página -->
+    <script src="index.js" defer></script>
+    <title>F1 Management</title>
+</head>
+<body>
+    <h1 class="title" value="Portugal" style="background-image:url('css/images/flags/portugal.png'); background-repeat: no-repeat; background-size: cover;">Portugal</h2>
+    <hr>
+    <div class="button_group">
+        <a href="E:\github\F1-Management\index.html"><button class="buttons_options">Vuelta al Inicio</button></a>
+        <a href="underovercut.html"><button class="buttons_options">Undercut Overcut</button></a>
+        <a href=""><button class="buttons_options">New Strategy</button></a>
+        <a href="setup-options.html"><button class="buttons_options">Setup Options</button></a>
+    </div>
+    <hr>
+    <h3 class="options">Race Length</h3>
+    <div class="wrapper">
+        <button class="Laps" value="5">5 Laps</button>
+        <button class="Laps" value="0.25">17 Laps</button>
+        <button class="Laps" value="0.5">33 Laps</button>
+        <button class="Laps" value="1">66 Laps</button>
+    </div>
+    <hr>
+    <h3 class="options">Weather</h3>
+    <div class="wrapper" style="vertical-align:middle;">
+        <button id="Weather_sun" class="Weather" value="Dry-Dry">Dry-Dry</button>
+        <button id="Weather_wet" class="Weather" value="Wet-Dry">Wet-Wet</button>
+        <button id="Weather_sun_wet" class="Weather" value="Dry-Wet">Dry-Wet</button>
+        <button id="Weather_sun_wet" class="Weather" value="Wet-Wet">Wet-Dry</button>
+    </div>
+    <hr>
+    <div class="wrapper">
+        <button class="calculo">Calculate Strategy</button>
+    </div>
+    <hr>
+    <div style="text-align: center;">
+        <p id="display" class="wrapper"></p>
+
+        <span id="first_strategy">
+            <p id="display_one_stop_1"></p>
+            <p id="display_explication1"></p>
+            <span id="strategy">
+                <div class="box" id="one" style="width: 50px;">.</div>
+                <div class="box" id="two" style="width: 150px;">.</div>
+                <div class="box" id="three" style="width: 50px;">.</div>
+                <div class="box" id="four" style="width: 150px;">.</div>
+                <div class="box" id="five" style="width: 50px;">.</div>
+                <div class="box" id="six" style="width: 150px;">.</div>
+                <div class="box" id="end_flag1" style="width: 50px;">.</div>
+            </span>
+        </span>
+
+        <span id="second_strategy">
+            <p id="display_one_stop_2"></p>
+            <p id="display_explication2"></p>
+            <span id="strategy">
+                <div class="box" id="seven" style="width: 50px;">.</div>
+                <div class="box" id="eight" style="width: 150px;">.</div>
+                <div class="box" id="nine" style="width: 50px;">.</div>
+                <div class="box" id="ten" style="width: 150px;">.</div>
+                <div class="box" id="eleven" style="width: 50px;">.</div>
+                <div class="box" id="twelve" style="width: 150px;">.</div>
+                <div class="box" id="end_flag2" style="width: 50px;">.</div>
+            </span>
+        </span>
+
+        <span id="third_strategy">
+            <p id="display_one_stop_3"></p>
+            <p id="display_explication3"></p>
+            <span id="strategy">
+                <div class="box" id="thirteen" style="width: 50px;">.</div>
+                <div class="box" id="fourteen" style="width: 150px;">.</div>
+                <div class="box" id="fifteen" style="width: 50px;">.</div>
+                <div class="box" id="sixteen" style="width: 150px;">.</div>
+                <div class="box" id="seventeen" style="width: 50px;">.</div>
+                <div class="box" id="eighteen" style="width: 150px;">.</div>
+                <div class="box" id="end_flag3" style="width: 50px;">.</div>
+            </span>
+        </span>
+
+    </div>
+</body>
+</html>
